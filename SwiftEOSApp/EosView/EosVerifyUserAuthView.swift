@@ -18,7 +18,7 @@ struct EosVerifyUserAuthView: View {
                 completion(info)
             }
         } builder: { result in
-            Text(result.ResultCode.description)
+            Text.copyable(result.ResultCode.description)
         }
     }
 }

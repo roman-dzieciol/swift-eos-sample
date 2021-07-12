@@ -15,7 +15,7 @@ struct EosEpicAccountsListView: View {
     var body: some View {
 
         List(accounts) { account in
-            NavigationLink(destination: EosEpicAccountView(eos: eos, account: account), label: { Text("\(account.description)") })
+            NavigationLink(destination: EosEpicAccountView(eos: eos, account: account), label: { Text.copyable("\(account.description)") })
         }
         .navigationTitle("Epic Account Ids")
 

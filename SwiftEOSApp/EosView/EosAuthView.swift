@@ -33,7 +33,7 @@ struct EosAuthView: View {
                             completion(info)
                         }
                     } builder: { (result: SwiftEOS_Auth_LogoutCallbackInfo) in
-                        Text(result.ResultCode.description)
+                        Text.copyable(result.ResultCode.description)
                     }, label: { Text("Logout") })
                 }
             }
@@ -43,7 +43,7 @@ struct EosAuthView: View {
                     completion(info)
                 }
             } builder: { result in
-                Text(result.ResultCode.description)
+                Text.copyable(result.ResultCode.description)
             }, label: { Text("Delete persistent auth") })
 
 

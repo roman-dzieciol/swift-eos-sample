@@ -16,16 +16,16 @@ struct EosEpicAccountView: View {
     var body: some View {
 
         List {
-            Text("AccountId: \(account.description)")
+            KeyValueText("AccountId:", account.description)
 
-            Text("Login status: " + eos.auth.GetLoginStatus(LocalUserId: account).description)
+            KeyValueText("Login status:", eos.auth.GetLoginStatus(LocalUserId: account).description)
 
             NavigationLink(destination: EosLoadingView { completion in
                 try eos.auth.Logout(LocalUserId: account) { info in
                     completion(info)
                 }
             } builder: { result in
-                Text(result.ResultCode.description)
+                Text.copyable(result.ResultCode.description)
             }, label: { Text("Logout") })
 
         }

@@ -16,22 +16,24 @@ struct EosAuthTokenView: View {
 
             Group {
                 NavigationLink(destination: EosVerifyUserAuthView(eos: eos, token: token)) { Text("Verify") }
-                Text("App: \(token.App ?? "")")
-                Text("ClientId: \(token.ClientId ?? "")")
-                NavigationLink(destination: EosEpicAccountView(eos: eos, account: token.AccountId!)) { Text("AccountId: \(token.AccountId!.description)") }
+                KeyValueText("App:", token.App)
+                KeyValueText("ClientId:", token.ClientId)
+                NavigationLink(destination: EosEpicAccountView(eos: eos, account: token.AccountId!)) {
+                    KeyValueText("AccountId:", token.AccountId?.description)
+                }
             }
 
             Group {
-                Text("AccessToken: \(token.AccessToken ?? "")")
-                Text("ExpiresIn: \(token.ExpiresIn)")
-                Text("ExpiresAt: \(token.ExpiresAt ?? "")")
-                Text("AuthType: \(token.AuthType.description)")
+                KeyValueText("AccessToken:", token.AccessToken)
+                KeyValueText("ExpiresIn:", "\(token.ExpiresIn)")
+                KeyValueText("ExpiresAt:", token.ExpiresAt)
+                KeyValueText("AuthType:", token.AuthType.description)
             }
 
             Group {
-                Text("RefreshToken: \(token.RefreshToken ?? "")")
-                Text("RefreshExpiresIn: " + "\(token.RefreshExpiresIn)")
-                Text("RefreshExpiresAt: " + (token.RefreshExpiresAt ?? ""))
+                KeyValueText("RefreshToken:", token.RefreshToken)
+                KeyValueText("RefreshExpiresIn:", "\(token.RefreshExpiresIn)")
+                KeyValueText("RefreshExpiresAt:", token.RefreshExpiresAt)
             }
 
         }
