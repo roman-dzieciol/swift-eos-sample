@@ -188,18 +188,34 @@
 			path = "SwiftUI+Eos";
 			sourceTree = "<group>";
 		};
-		71F13A18269BBEB60095A191 /* EosView */ = {
+		71CC924A269CB0E3006F0260 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
 				71F13A0A269B8F190095A191 /* EosAuthTokenView.swift */,
 				71F13A0C269B8F330095A191 /* EosAuthView.swift */,
 				71F13A0E269B9D040095A191 /* EosEpicAccountsListView.swift */,
+				71F13A12269BA7550095A191 /* EosVerifyUserAuthView.swift */,
 				71F13A10269B9E950095A191 /* EosEpicAccountView.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		71CC924C269CB119006F0260 /* Core */ = {
+			isa = PBXGroup;
+			children = (
 				71F13A16269BBAF90095A191 /* EosLoadingView.swift */,
-				71F13A19269BBEF50095A191 /* EosRootView.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		71F13A18269BBEB60095A191 /* EosView */ = {
+			isa = PBXGroup;
+			children = (
+				71CC924C269CB119006F0260 /* Core */,
+				71CC924A269CB0E3006F0260 /* Auth */,
 				71F13A1B269BBEFF0095A191 /* EosLoggedInView.swift */,
 				7122CCDD2692914F00143BF1 /* EosLoginView.swift */,
-				71F13A12269BA7550095A191 /* EosVerifyUserAuthView.swift */,
+				71F13A19269BBEF50095A191 /* EosRootView.swift */,
 			);
 			path = EosView;
 			sourceTree = "<group>";
