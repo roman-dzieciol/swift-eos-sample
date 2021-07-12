@@ -1,0 +1,704 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7122CCAD26928F8400143BF1 /* SwiftEOSAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7122CCAC26928F8400143BF1 /* SwiftEOSAppApp.swift */; };
+		7122CCB126928F8500143BF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7122CCB026928F8500143BF1 /* Assets.xcassets */; };
+		7122CCB426928F8500143BF1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7122CCB326928F8500143BF1 /* Preview Assets.xcassets */; };
+		7122CCBE26928F8600143BF1 /* SwiftEOSAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7122CCBD26928F8600143BF1 /* SwiftEOSAppTests.swift */; };
+		7122CCC826928F8600143BF1 /* SwiftEOSAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7122CCC726928F8600143BF1 /* SwiftEOSAppUITests.swift */; };
+		7122CCD72692902200143BF1 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7122CCD62692902200143BF1 /* AuthenticationServices.framework */; };
+		7122CCDB2692908400143BF1 /* SwiftEOSModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7122CCDA2692908400143BF1 /* SwiftEOSModel.swift */; };
+		7122CCDE2692914F00143BF1 /* EosLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7122CCDD2692914F00143BF1 /* EosLoginView.swift */; };
+		71EF6DF6269A6BB800303231 /* SwiftEOS in Frameworks */ = {isa = PBXBuildFile; productRef = 71EF6DF5269A6BB800303231 /* SwiftEOS */; };
+		71F13A0B269B8F190095A191 /* EosAuthTokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F13A0A269B8F190095A191 /* EosAuthTokenView.swift */; };
+		71F13A0D269B8F330095A191 /* EosAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F13A0C269B8F330095A191 /* EosAuthView.swift */; };
+		71F13A0F269B9D040095A191 /* EosEpicAccountsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F13A0E269B9D040095A191 /* EosEpicAccountsListView.swift */; };
+		71F13A11269B9E950095A191 /* EosEpicAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F13A10269B9E950095A191 /* EosEpicAccountView.swift */; };
+		71F13A13269BA7550095A191 /* EosVerifyUserAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F13A12269BA7550095A191 /* EosVerifyUserAuthView.swift */; };
+		71F13A17269BBAF90095A191 /* EosLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F13A16269BBAF90095A191 /* EosLoadingView.swift */; };
+		71F13A1A269BBEF50095A191 /* EosRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F13A19269BBEF50095A191 /* EosRootView.swift */; };
+		71F13A1C269BBEFF0095A191 /* EosLoggedInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F13A1B269BBEFF0095A191 /* EosLoggedInView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7122CCBA26928F8600143BF1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7122CCA126928F8400143BF1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7122CCA826928F8400143BF1;
+			remoteInfo = SwiftEOSApp;
+		};
+		7122CCC426928F8600143BF1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7122CCA126928F8400143BF1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7122CCA826928F8400143BF1;
+			remoteInfo = SwiftEOSApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7122CD282692951A00143BF1 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		7122CCA926928F8400143BF1 /* SwiftEOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftEOSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7122CCAC26928F8400143BF1 /* SwiftEOSAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftEOSAppApp.swift; sourceTree = "<group>"; };
+		7122CCB026928F8500143BF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7122CCB326928F8500143BF1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7122CCB926928F8600143BF1 /* SwiftEOSAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftEOSAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7122CCBD26928F8600143BF1 /* SwiftEOSAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftEOSAppTests.swift; sourceTree = "<group>"; };
+		7122CCC326928F8600143BF1 /* SwiftEOSAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftEOSAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7122CCC726928F8600143BF1 /* SwiftEOSAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftEOSAppUITests.swift; sourceTree = "<group>"; };
+		7122CCD62692902200143BF1 /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
+		7122CCDA2692908400143BF1 /* SwiftEOSModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftEOSModel.swift; sourceTree = "<group>"; };
+		7122CCDC2692911C00143BF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		7122CCDD2692914F00143BF1 /* EosLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EosLoginView.swift; sourceTree = "<group>"; };
+		71EF6DF4269A6B2400303231 /* swift-eos */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "swift-eos"; path = "../../swift-eos"; sourceTree = "<group>"; };
+		71F13A0A269B8F190095A191 /* EosAuthTokenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EosAuthTokenView.swift; sourceTree = "<group>"; };
+		71F13A0C269B8F330095A191 /* EosAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EosAuthView.swift; sourceTree = "<group>"; };
+		71F13A0E269B9D040095A191 /* EosEpicAccountsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EosEpicAccountsListView.swift; sourceTree = "<group>"; };
+		71F13A10269B9E950095A191 /* EosEpicAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EosEpicAccountView.swift; sourceTree = "<group>"; };
+		71F13A12269BA7550095A191 /* EosVerifyUserAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EosVerifyUserAuthView.swift; sourceTree = "<group>"; };
+		71F13A16269BBAF90095A191 /* EosLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EosLoadingView.swift; sourceTree = "<group>"; };
+		71F13A19269BBEF50095A191 /* EosRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EosRootView.swift; sourceTree = "<group>"; };
+		71F13A1B269BBEFF0095A191 /* EosLoggedInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EosLoggedInView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7122CCA626928F8400143BF1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71EF6DF6269A6BB800303231 /* SwiftEOS in Frameworks */,
+				7122CCD72692902200143BF1 /* AuthenticationServices.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7122CCB626928F8600143BF1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7122CCC026928F8600143BF1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7122CCA026928F8400143BF1 = {
+			isa = PBXGroup;
+			children = (
+				7122CCAB26928F8400143BF1 /* SwiftEOSApp */,
+				7122CCBC26928F8600143BF1 /* SwiftEOSAppTests */,
+				7122CCC626928F8600143BF1 /* SwiftEOSAppUITests */,
+				7122CCAA26928F8400143BF1 /* Products */,
+				7122CCD52692902200143BF1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		7122CCAA26928F8400143BF1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7122CCA926928F8400143BF1 /* SwiftEOSApp.app */,
+				7122CCB926928F8600143BF1 /* SwiftEOSAppTests.xctest */,
+				7122CCC326928F8600143BF1 /* SwiftEOSAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7122CCAB26928F8400143BF1 /* SwiftEOSApp */ = {
+			isa = PBXGroup;
+			children = (
+				71EF6DF4269A6B2400303231 /* swift-eos */,
+				7122CCDC2692911C00143BF1 /* Info.plist */,
+				7122CCAC26928F8400143BF1 /* SwiftEOSAppApp.swift */,
+				7122CCDA2692908400143BF1 /* SwiftEOSModel.swift */,
+				71F13A18269BBEB60095A191 /* EosView */,
+				7122CCB026928F8500143BF1 /* Assets.xcassets */,
+				7122CCB226928F8500143BF1 /* Preview Content */,
+			);
+			path = SwiftEOSApp;
+			sourceTree = "<group>";
+		};
+		7122CCB226928F8500143BF1 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				7122CCB326928F8500143BF1 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7122CCBC26928F8600143BF1 /* SwiftEOSAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				7122CCBD26928F8600143BF1 /* SwiftEOSAppTests.swift */,
+			);
+			path = SwiftEOSAppTests;
+			sourceTree = "<group>";
+		};
+		7122CCC626928F8600143BF1 /* SwiftEOSAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7122CCC726928F8600143BF1 /* SwiftEOSAppUITests.swift */,
+			);
+			path = SwiftEOSAppUITests;
+			sourceTree = "<group>";
+		};
+		7122CCD52692902200143BF1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7122CCD62692902200143BF1 /* AuthenticationServices.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		71F13A18269BBEB60095A191 /* EosView */ = {
+			isa = PBXGroup;
+			children = (
+				71F13A0A269B8F190095A191 /* EosAuthTokenView.swift */,
+				71F13A0C269B8F330095A191 /* EosAuthView.swift */,
+				71F13A0E269B9D040095A191 /* EosEpicAccountsListView.swift */,
+				71F13A10269B9E950095A191 /* EosEpicAccountView.swift */,
+				71F13A16269BBAF90095A191 /* EosLoadingView.swift */,
+				71F13A19269BBEF50095A191 /* EosRootView.swift */,
+				71F13A1B269BBEFF0095A191 /* EosLoggedInView.swift */,
+				7122CCDD2692914F00143BF1 /* EosLoginView.swift */,
+				71F13A12269BA7550095A191 /* EosVerifyUserAuthView.swift */,
+			);
+			path = EosView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7122CCA826928F8400143BF1 /* SwiftEOSApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7122CCCB26928F8600143BF1 /* Build configuration list for PBXNativeTarget "SwiftEOSApp" */;
+			buildPhases = (
+				7122CCA526928F8400143BF1 /* Sources */,
+				7122CCA626928F8400143BF1 /* Frameworks */,
+				7122CCA726928F8400143BF1 /* Resources */,
+				7122CD282692951A00143BF1 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftEOSApp;
+			packageProductDependencies = (
+				71EF6DF5269A6BB800303231 /* SwiftEOS */,
+			);
+			productName = SwiftEOSApp;
+			productReference = 7122CCA926928F8400143BF1 /* SwiftEOSApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7122CCB826928F8600143BF1 /* SwiftEOSAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7122CCCE26928F8600143BF1 /* Build configuration list for PBXNativeTarget "SwiftEOSAppTests" */;
+			buildPhases = (
+				7122CCB526928F8600143BF1 /* Sources */,
+				7122CCB626928F8600143BF1 /* Frameworks */,
+				7122CCB726928F8600143BF1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7122CCBB26928F8600143BF1 /* PBXTargetDependency */,
+			);
+			name = SwiftEOSAppTests;
+			productName = SwiftEOSAppTests;
+			productReference = 7122CCB926928F8600143BF1 /* SwiftEOSAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7122CCC226928F8600143BF1 /* SwiftEOSAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7122CCD126928F8600143BF1 /* Build configuration list for PBXNativeTarget "SwiftEOSAppUITests" */;
+			buildPhases = (
+				7122CCBF26928F8600143BF1 /* Sources */,
+				7122CCC026928F8600143BF1 /* Frameworks */,
+				7122CCC126928F8600143BF1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7122CCC526928F8600143BF1 /* PBXTargetDependency */,
+			);
+			name = SwiftEOSAppUITests;
+			productName = SwiftEOSAppUITests;
+			productReference = 7122CCC326928F8600143BF1 /* SwiftEOSAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7122CCA126928F8400143BF1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
+				TargetAttributes = {
+					7122CCA826928F8400143BF1 = {
+						CreatedOnToolsVersion = 13.0;
+					};
+					7122CCB826928F8600143BF1 = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = 7122CCA826928F8400143BF1;
+					};
+					7122CCC226928F8600143BF1 = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = 7122CCA826928F8400143BF1;
+					};
+				};
+			};
+			buildConfigurationList = 7122CCA426928F8400143BF1 /* Build configuration list for PBXProject "SwiftEOSApp" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7122CCA026928F8400143BF1;
+			productRefGroup = 7122CCAA26928F8400143BF1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7122CCA826928F8400143BF1 /* SwiftEOSApp */,
+				7122CCB826928F8600143BF1 /* SwiftEOSAppTests */,
+				7122CCC226928F8600143BF1 /* SwiftEOSAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7122CCA726928F8400143BF1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7122CCB426928F8500143BF1 /* Preview Assets.xcassets in Resources */,
+				7122CCB126928F8500143BF1 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7122CCB726928F8600143BF1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7122CCC126928F8600143BF1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7122CCA526928F8400143BF1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71F13A11269B9E950095A191 /* EosEpicAccountView.swift in Sources */,
+				7122CCDE2692914F00143BF1 /* EosLoginView.swift in Sources */,
+				71F13A1A269BBEF50095A191 /* EosRootView.swift in Sources */,
+				71F13A0F269B9D040095A191 /* EosEpicAccountsListView.swift in Sources */,
+				7122CCDB2692908400143BF1 /* SwiftEOSModel.swift in Sources */,
+				71F13A0D269B8F330095A191 /* EosAuthView.swift in Sources */,
+				71F13A0B269B8F190095A191 /* EosAuthTokenView.swift in Sources */,
+				71F13A1C269BBEFF0095A191 /* EosLoggedInView.swift in Sources */,
+				71F13A17269BBAF90095A191 /* EosLoadingView.swift in Sources */,
+				7122CCAD26928F8400143BF1 /* SwiftEOSAppApp.swift in Sources */,
+				71F13A13269BA7550095A191 /* EosVerifyUserAuthView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7122CCB526928F8600143BF1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7122CCBE26928F8600143BF1 /* SwiftEOSAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7122CCBF26928F8600143BF1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7122CCC826928F8600143BF1 /* SwiftEOSAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7122CCBB26928F8600143BF1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7122CCA826928F8400143BF1 /* SwiftEOSApp */;
+			targetProxy = 7122CCBA26928F8600143BF1 /* PBXContainerItemProxy */;
+		};
+		7122CCC526928F8600143BF1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7122CCA826928F8400143BF1 /* SwiftEOSApp */;
+			targetProxy = 7122CCC426928F8600143BF1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		7122CCC926928F8600143BF1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7122CCCA26928F8600143BF1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7122CCCC26928F8600143BF1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SwiftEOSApp/Preview Content\"";
+				DEVELOPMENT_TEAM = E54RQ2YKR5;
+				ENABLE_BITCODE = NO;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftEOSApp/Info.plist;
+				INFOPLIST_KEY_CFBundleExecutable = SwiftEOSApp;
+				INFOPLIST_KEY_CFBundleName = SwiftEOSApp;
+				INFOPLIST_KEY_CFBundleVersion = 1;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rd.SwiftEOSApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7122CCCD26928F8600143BF1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SwiftEOSApp/Preview Content\"";
+				DEVELOPMENT_TEAM = E54RQ2YKR5;
+				ENABLE_BITCODE = NO;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftEOSApp/Info.plist;
+				INFOPLIST_KEY_CFBundleExecutable = SwiftEOSApp;
+				INFOPLIST_KEY_CFBundleName = SwiftEOSApp;
+				INFOPLIST_KEY_CFBundleVersion = 1;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rd.SwiftEOSApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7122CCCF26928F8600143BF1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = E54RQ2YKR5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rd.SwiftEOSAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftEOSApp.app/SwiftEOSApp";
+			};
+			name = Debug;
+		};
+		7122CCD026928F8600143BF1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = E54RQ2YKR5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rd.SwiftEOSAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftEOSApp.app/SwiftEOSApp";
+			};
+			name = Release;
+		};
+		7122CCD226928F8600143BF1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = E54RQ2YKR5;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rd.SwiftEOSAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SwiftEOSApp;
+			};
+			name = Debug;
+		};
+		7122CCD326928F8600143BF1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = E54RQ2YKR5;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rd.SwiftEOSAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SwiftEOSApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7122CCA426928F8400143BF1 /* Build configuration list for PBXProject "SwiftEOSApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7122CCC926928F8600143BF1 /* Debug */,
+				7122CCCA26928F8600143BF1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7122CCCB26928F8600143BF1 /* Build configuration list for PBXNativeTarget "SwiftEOSApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7122CCCC26928F8600143BF1 /* Debug */,
+				7122CCCD26928F8600143BF1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7122CCCE26928F8600143BF1 /* Build configuration list for PBXNativeTarget "SwiftEOSAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7122CCCF26928F8600143BF1 /* Debug */,
+				7122CCD026928F8600143BF1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7122CCD126928F8600143BF1 /* Build configuration list for PBXNativeTarget "SwiftEOSAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7122CCD226928F8600143BF1 /* Debug */,
+				7122CCD326928F8600143BF1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		71EF6DF5269A6BB800303231 /* SwiftEOS */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SwiftEOS;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 7122CCA126928F8400143BF1 /* Project object */;
+}
