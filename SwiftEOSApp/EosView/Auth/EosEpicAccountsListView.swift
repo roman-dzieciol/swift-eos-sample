@@ -10,15 +10,12 @@ struct EosEpicAccountsListView: View {
     @ObservedObject
     var eos: SwiftEOSModel
 
-    let accounts: [EOS_EpicAccountId]
+    let epicAccountIds: [EOS_EpicAccountId]
 
     var body: some View {
-
-        List(accounts) { account in
-            NavigationLink(destination: EosEpicAccountView(eos: eos, account: account), label: { Text.copyable("\(account.description)") })
+        List(epicAccountIds) { epicAccountId in
+            NavigationLink(epicAccountId.description, destination: EosEpicAccountView(eos: eos, epicAccountId: epicAccountId))
         }
-        .navigationTitle("Epic Account Ids")
-
     }
 }
 

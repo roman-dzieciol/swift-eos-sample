@@ -7,10 +7,6 @@ import Combine
 import AuthenticationServices
 
 
-extension Logger {
-    public static let app = Logger(subsystem: "dev.roman.eon", category: "app")
-}
-
 extension SwiftEOS_Platform_Actor {
 
     public func auth() throws -> SwiftEOS_Auth_Actor {

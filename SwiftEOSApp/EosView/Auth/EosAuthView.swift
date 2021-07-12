@@ -4,6 +4,7 @@ import SwiftUI
 import SwiftEOS
 import EOSSDK
 
+
 struct EosAuthView: View {
 
     @ObservedObject
@@ -14,41 +15,40 @@ struct EosAuthView: View {
     var body: some View {
 
         List {
+            KeyValueText("LocalUserId:", localUserId.description)
 
-            if let accountsNum = try? eos.auth.GetLoggedInAccountsCount() {
-                NavigationLink(
-                    destination: EosEpicAccountsListView(
-                        eos: eos,
-                        accounts: (try? (0..<accountsNum).map { try eos.platform.auth().GetLoggedInAccountByIndex(Index: $0) }) ?? [] ),
-                    label: { Text("Logged in accounts: \(accountsNum)") }
-                )
-            }
+            NavigationLink("Get Logged In Accounts", destination: EosCheckedView("Get Logged In Accounts") {
+                let accountsNum = try eos.auth.GetLoggedInAccountsCount()
+                return try (0..<accountsNum).map { try eos.auth.GetLoggedInAccountByIndex(Index: $0) }
+            } views: {
+                EosEpicAccountsListView(eos: eos, epicAccountIds: $0)
+            })
 
-            if let token = try? eos.platform.auth().CopyUserAuthToken(LocalUserId: localUserId) {
-                NavigationLink(destination: EosAuthTokenView(eos: eos, token: token), label: { Text("Auth Token") })
+            NavigationLink("Copy User Auth Token", destination: EosCheckedView("Copy User Auth Token") {
+                try eos.auth.CopyUserAuthToken(LocalUserId: localUserId)
+            } views: {
+                EosAuthTokenView(eos: eos, token: $0)
+            })
 
-                if let account = token.AccountId {
-                    NavigationLink(destination: EosLoadingView { completion in
-                        try eos.auth.Logout(LocalUserId: account) { info in
-                            completion(info)
-                        }
-                    } builder: { (result: SwiftEOS_Auth_LogoutCallbackInfo) in
-                        Text.copyable(result.ResultCode.description)
-                    }, label: { Text("Logout") })
-                }
-            }
+            NavigationLink("Query User Info", destination: EosResultView("Query User Info") {
+                try eos.userInfo.QueryUserInfo(LocalUserId: eos.localUserId!, TargetUserId: localUserId, CompletionDelegate: $0)
+            })
 
-            NavigationLink(destination: EosLoadingView { completion in
-                try eos.auth.DeletePersistentAuth(RefreshToken: nil) { info in
-                    completion(info)
-                }
-            } builder: { result in
-                Text.copyable(result.ResultCode.description)
-            }, label: { Text("Delete persistent auth") })
+            NavigationLink("Copy User Info", destination: EosCheckedView("Copy User Info") {
+                try eos.userInfo.CopyUserInfo(LocalUserId: localUserId, TargetUserId: localUserId)
+            } views: {
+                EosUserInfoView(eos: eos, userInfo: $0)
+            })
 
+            NavigationLink("Delete Persistent Auth", destination: EosResultView("Delete Persistent Auth") {
+                try eos.auth.DeletePersistentAuth(RefreshToken: nil, CompletionDelegate: $0)
+            })
 
+            NavigationLink("Logout", destination: EosResultView("Logout") {
+                try eos.auth.Logout(LocalUserId: localUserId, CompletionDelegate: $0)
+            })
         }
-        .navigationTitle("Auth")
-
     }
 }
+
+extension SwiftEOS_Auth_DeletePersistentAuthCallbackInfo: CallbackInfoWithResult {}

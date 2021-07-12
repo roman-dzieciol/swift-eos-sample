@@ -1,5 +1,4 @@
 
-
 import Foundation
 import SwiftUI
 import SwiftEOS
@@ -11,25 +10,25 @@ struct EosEpicAccountView: View {
     @ObservedObject
     var eos: SwiftEOSModel
 
-    let account: EOS_EpicAccountId
+    let epicAccountId: EOS_EpicAccountId
 
     var body: some View {
 
         List {
-            KeyValueText("AccountId:", account.description)
+            KeyValueText("AccountId:", epicAccountId.description)
 
-            KeyValueText("Login status:", eos.auth.GetLoginStatus(LocalUserId: account).description)
+            KeyValueText("Login status:", eos.auth.GetLoginStatus(LocalUserId: epicAccountId).description)
 
-            NavigationLink(destination: EosLoadingView { completion in
-                try eos.auth.Logout(LocalUserId: account) { info in
-                    completion(info)
-                }
-            } builder: { result in
-                Text.copyable(result.ResultCode.description)
-            }, label: { Text("Logout") })
+            NavigationLink("QueryUserInfo", destination: EosQueryUserInfoView(eos: eos, localUserId: eos.localUserId!, targetUserId: epicAccountId))
+            NavigationLink("CopyUserInfo", destination: EosCopyUserInfoView(eos: eos, localUserId: eos.localUserId!, targetUserId: epicAccountId))
+
+            NavigationLink("Logout", destination: EosResultView("Logout") {
+                try eos.auth.Logout(LocalUserId: epicAccountId, CompletionDelegate: $0)
+            })
 
         }
         .navigationTitle("Epic Account Id")
     }
 }
 
+extension SwiftEOS_Auth_LogoutCallbackInfo: CallbackInfoWithResult {}

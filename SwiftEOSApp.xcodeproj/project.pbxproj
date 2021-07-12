@@ -17,12 +17,15 @@
 		7122CCDE2692914F00143BF1 /* EosLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7122CCDD2692914F00143BF1 /* EosLoginView.swift */; };
 		71CC9247269CA93A006F0260 /* Text+Eos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CC9246269CA93A006F0260 /* Text+Eos.swift */; };
 		71CC9249269CAB84006F0260 /* KeyValueText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CC9248269CAB84006F0260 /* KeyValueText.swift */; };
+		71CC924F269CB25E006F0260 /* EosQueryUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CC924E269CB25E006F0260 /* EosQueryUserInfoView.swift */; };
+		71CC9251269CBF31006F0260 /* EosUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CC9250269CBF31006F0260 /* EosUserInfoView.swift */; };
+		71CC9253269CBF49006F0260 /* EosCopyUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CC9252269CBF49006F0260 /* EosCopyUserInfoView.swift */; };
+		71CC9255269CCB22006F0260 /* Logger+Eos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CC9254269CCB22006F0260 /* Logger+Eos.swift */; };
 		71EF6DF6269A6BB800303231 /* SwiftEOS in Frameworks */ = {isa = PBXBuildFile; productRef = 71EF6DF5269A6BB800303231 /* SwiftEOS */; };
 		71F13A0B269B8F190095A191 /* EosAuthTokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F13A0A269B8F190095A191 /* EosAuthTokenView.swift */; };
 		71F13A0D269B8F330095A191 /* EosAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F13A0C269B8F330095A191 /* EosAuthView.swift */; };
 		71F13A0F269B9D040095A191 /* EosEpicAccountsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F13A0E269B9D040095A191 /* EosEpicAccountsListView.swift */; };
 		71F13A11269B9E950095A191 /* EosEpicAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F13A10269B9E950095A191 /* EosEpicAccountView.swift */; };
-		71F13A13269BA7550095A191 /* EosVerifyUserAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F13A12269BA7550095A191 /* EosVerifyUserAuthView.swift */; };
 		71F13A17269BBAF90095A191 /* EosLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F13A16269BBAF90095A191 /* EosLoadingView.swift */; };
 		71F13A1A269BBEF50095A191 /* EosRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F13A19269BBEF50095A191 /* EosRootView.swift */; };
 		71F13A1C269BBEFF0095A191 /* EosLoggedInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F13A1B269BBEFF0095A191 /* EosLoggedInView.swift */; };
@@ -73,12 +76,15 @@
 		7122CCDD2692914F00143BF1 /* EosLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EosLoginView.swift; sourceTree = "<group>"; };
 		71CC9246269CA93A006F0260 /* Text+Eos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+Eos.swift"; sourceTree = "<group>"; };
 		71CC9248269CAB84006F0260 /* KeyValueText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueText.swift; sourceTree = "<group>"; };
+		71CC924E269CB25E006F0260 /* EosQueryUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EosQueryUserInfoView.swift; sourceTree = "<group>"; };
+		71CC9250269CBF31006F0260 /* EosUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EosUserInfoView.swift; sourceTree = "<group>"; };
+		71CC9252269CBF49006F0260 /* EosCopyUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EosCopyUserInfoView.swift; sourceTree = "<group>"; };
+		71CC9254269CCB22006F0260 /* Logger+Eos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+Eos.swift"; sourceTree = "<group>"; };
 		71EF6DF4269A6B2400303231 /* swift-eos */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "swift-eos"; path = "../../swift-eos"; sourceTree = "<group>"; };
 		71F13A0A269B8F190095A191 /* EosAuthTokenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EosAuthTokenView.swift; sourceTree = "<group>"; };
 		71F13A0C269B8F330095A191 /* EosAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EosAuthView.swift; sourceTree = "<group>"; };
 		71F13A0E269B9D040095A191 /* EosEpicAccountsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EosEpicAccountsListView.swift; sourceTree = "<group>"; };
 		71F13A10269B9E950095A191 /* EosEpicAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EosEpicAccountView.swift; sourceTree = "<group>"; };
-		71F13A12269BA7550095A191 /* EosVerifyUserAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EosVerifyUserAuthView.swift; sourceTree = "<group>"; };
 		71F13A16269BBAF90095A191 /* EosLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EosLoadingView.swift; sourceTree = "<group>"; };
 		71F13A19269BBEF50095A191 /* EosRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EosRootView.swift; sourceTree = "<group>"; };
 		71F13A1B269BBEFF0095A191 /* EosLoggedInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EosLoggedInView.swift; sourceTree = "<group>"; };
@@ -139,6 +145,7 @@
 				7122CCDC2692911C00143BF1 /* Info.plist */,
 				7122CCAC26928F8400143BF1 /* SwiftEOSAppApp.swift */,
 				7122CCDA2692908400143BF1 /* SwiftEOSModel.swift */,
+				71CC9254269CCB22006F0260 /* Logger+Eos.swift */,
 				71CC9245269CA92A006F0260 /* SwiftUI+Eos */,
 				71F13A18269BBEB60095A191 /* EosView */,
 				7122CCB026928F8500143BF1 /* Assets.xcassets */,
@@ -194,7 +201,6 @@
 				71F13A0A269B8F190095A191 /* EosAuthTokenView.swift */,
 				71F13A0C269B8F330095A191 /* EosAuthView.swift */,
 				71F13A0E269B9D040095A191 /* EosEpicAccountsListView.swift */,
-				71F13A12269BA7550095A191 /* EosVerifyUserAuthView.swift */,
 				71F13A10269B9E950095A191 /* EosEpicAccountView.swift */,
 			);
 			path = Auth;
@@ -208,14 +214,25 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
+		71CC924D269CB165006F0260 /* UserInfo */ = {
+			isa = PBXGroup;
+			children = (
+				71CC9252269CBF49006F0260 /* EosCopyUserInfoView.swift */,
+				71CC924E269CB25E006F0260 /* EosQueryUserInfoView.swift */,
+				71CC9250269CBF31006F0260 /* EosUserInfoView.swift */,
+			);
+			path = UserInfo;
+			sourceTree = "<group>";
+		};
 		71F13A18269BBEB60095A191 /* EosView */ = {
 			isa = PBXGroup;
 			children = (
-				71CC924C269CB119006F0260 /* Core */,
-				71CC924A269CB0E3006F0260 /* Auth */,
 				71F13A1B269BBEFF0095A191 /* EosLoggedInView.swift */,
 				7122CCDD2692914F00143BF1 /* EosLoginView.swift */,
 				71F13A19269BBEF50095A191 /* EosRootView.swift */,
+				71CC924A269CB0E3006F0260 /* Auth */,
+				71CC924C269CB119006F0260 /* Core */,
+				71CC924D269CB165006F0260 /* UserInfo */,
 			);
 			path = EosView;
 			sourceTree = "<group>";
@@ -354,6 +371,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71CC9251269CBF31006F0260 /* EosUserInfoView.swift in Sources */,
+				71CC924F269CB25E006F0260 /* EosQueryUserInfoView.swift in Sources */,
 				71CC9249269CAB84006F0260 /* KeyValueText.swift in Sources */,
 				71CC9247269CA93A006F0260 /* Text+Eos.swift in Sources */,
 				71F13A11269B9E950095A191 /* EosEpicAccountView.swift in Sources */,
@@ -364,9 +383,10 @@
 				71F13A0D269B8F330095A191 /* EosAuthView.swift in Sources */,
 				71F13A0B269B8F190095A191 /* EosAuthTokenView.swift in Sources */,
 				71F13A1C269BBEFF0095A191 /* EosLoggedInView.swift in Sources */,
+				71CC9253269CBF49006F0260 /* EosCopyUserInfoView.swift in Sources */,
 				71F13A17269BBAF90095A191 /* EosLoadingView.swift in Sources */,
+				71CC9255269CCB22006F0260 /* Logger+Eos.swift in Sources */,
 				7122CCAD26928F8400143BF1 /* SwiftEOSAppApp.swift in Sources */,
-				71F13A13269BA7550095A191 /* EosVerifyUserAuthView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

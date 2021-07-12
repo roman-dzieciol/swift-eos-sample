@@ -15,7 +15,8 @@ struct EosLoggedInView: View {
     var body: some View {
 
         List {
-            NavigationLink(destination: EosAuthView(eos: eos, localUserId: localUserId), label: { Text("Auth") })
+            NavigationLink("Auth", destination: EosAuthView(eos: eos, localUserId: localUserId))
+                .navigationTitle("Auth")
         }
         .navigationTitle(" \(eos.auth.GetLoginStatus(LocalUserId: localUserId).description)")
     }
