@@ -24,13 +24,13 @@ struct EosAuthTokenView: View {
             }
             Group {
                 KeyValueText("AccessToken:", token.AccessToken)
-                KeyValueText("ExpiresIn:", "\(token.ExpiresIn) ")
+                KeyValueText("ExpiresIn:", "\(token.ExpiresIn)")
                 KeyValueText("ExpiresAt:", token.ExpiresAt)
                 KeyValueText("AuthType:", token.AuthType.description)
             }
             Group {
-                KeyValueText("RefreshToken:", " " + (token.RefreshToken ?? "") + " ")
-                KeyValueText("RefreshExpiresIn:", " \(token.RefreshExpiresIn) ")
+                KeyValueText("RefreshToken:", token.RefreshToken)
+                KeyValueText("RefreshExpiresIn:", "\(token.RefreshExpiresIn)")
                 KeyValueText("RefreshExpiresAt:", token.RefreshExpiresAt)
             }
         }

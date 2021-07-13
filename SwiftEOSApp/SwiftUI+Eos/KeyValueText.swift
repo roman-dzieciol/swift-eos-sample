@@ -37,7 +37,7 @@ struct KeyValueText: View {
         VStack(alignment: .leading, spacing: .zero) {
             Text(key)
                 .font(.callout)
-                .foregroundColor(.secondary)
+                .foregroundColor(.eosSecondary)
 
             if let value = value {
 

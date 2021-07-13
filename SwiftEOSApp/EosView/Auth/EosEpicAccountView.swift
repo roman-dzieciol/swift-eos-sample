@@ -25,7 +25,6 @@ struct EosEpicAccountView: View {
             NavigationLink("Logout", destination: EosResultView("Logout") {
                 try eos.auth.Logout(LocalUserId: epicAccountId, CompletionDelegate: $0)
             })
-
         }
         .navigationTitle("Epic Account Id")
     }

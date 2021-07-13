@@ -21,6 +21,7 @@
 		71CC9251269CBF31006F0260 /* EosUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CC9250269CBF31006F0260 /* EosUserInfoView.swift */; };
 		71CC9253269CBF49006F0260 /* EosCopyUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CC9252269CBF49006F0260 /* EosCopyUserInfoView.swift */; };
 		71CC9255269CCB22006F0260 /* Logger+Eos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CC9254269CCB22006F0260 /* Logger+Eos.swift */; };
+		71CC9257269D234D006F0260 /* launch.wav in Resources */ = {isa = PBXBuildFile; fileRef = 71CC9256269D234D006F0260 /* launch.wav */; };
 		71EF6DF6269A6BB800303231 /* SwiftEOS in Frameworks */ = {isa = PBXBuildFile; productRef = 71EF6DF5269A6BB800303231 /* SwiftEOS */; };
 		71F13A0B269B8F190095A191 /* EosAuthTokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F13A0A269B8F190095A191 /* EosAuthTokenView.swift */; };
 		71F13A0D269B8F330095A191 /* EosAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F13A0C269B8F330095A191 /* EosAuthView.swift */; };
@@ -80,6 +81,7 @@
 		71CC9250269CBF31006F0260 /* EosUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EosUserInfoView.swift; sourceTree = "<group>"; };
 		71CC9252269CBF49006F0260 /* EosCopyUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EosCopyUserInfoView.swift; sourceTree = "<group>"; };
 		71CC9254269CCB22006F0260 /* Logger+Eos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+Eos.swift"; sourceTree = "<group>"; };
+		71CC9256269D234D006F0260 /* launch.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = launch.wav; sourceTree = SOURCE_ROOT; };
 		71EF6DF4269A6B2400303231 /* swift-eos */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "swift-eos"; path = "../../swift-eos"; sourceTree = "<group>"; };
 		71F13A0A269B8F190095A191 /* EosAuthTokenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EosAuthTokenView.swift; sourceTree = "<group>"; };
 		71F13A0C269B8F330095A191 /* EosAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EosAuthView.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 		7122CCAB26928F8400143BF1 /* SwiftEOSApp */ = {
 			isa = PBXGroup;
 			children = (
+				71CC9256269D234D006F0260 /* launch.wav */,
 				71EF6DF4269A6B2400303231 /* swift-eos */,
 				7122CCDC2692911C00143BF1 /* Info.plist */,
 				7122CCAC26928F8400143BF1 /* SwiftEOSAppApp.swift */,
@@ -346,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7122CCB426928F8500143BF1 /* Preview Assets.xcassets in Resources */,
+				71CC9257269D234D006F0260 /* launch.wav in Resources */,
 				7122CCB126928F8500143BF1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

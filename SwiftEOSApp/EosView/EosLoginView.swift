@@ -29,6 +29,5 @@ struct EosLoginView: View {
                 }
             }
         }
-
     }
 }
