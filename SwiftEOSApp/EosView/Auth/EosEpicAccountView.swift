@@ -15,15 +15,19 @@ struct EosEpicAccountView: View {
     var body: some View {
 
         List {
-            KeyValueText("AccountId:", epicAccountId.description)
+            KeyValueText("AccountId:", eos.authModel.toString(id: epicAccountId))
 
             KeyValueText("Login status:", eos.auth.GetLoginStatus(LocalUserId: epicAccountId).description)
 
-            NavigationLink("QueryUserInfo", destination: EosQueryUserInfoView(eos: eos, localUserId: eos.localUserId!, targetUserId: epicAccountId))
-            NavigationLink("CopyUserInfo", destination: EosCopyUserInfoView(eos: eos, localUserId: eos.localUserId!, targetUserId: epicAccountId))
+            NavigationLink("Query User Info", destination: EosQueryUserInfoView(eos: eos, localUserId: eos.authModel.localUserId!, targetUserId: epicAccountId))
+            NavigationLink("Copy User Info", destination: EosCopyUserInfoView(eos: eos, localUserId: eos.authModel.localUserId!, targetUserId: epicAccountId))
+
+            NavigationLink("Query Player Achievements", destination: EosQueryPlayerAchievementsView(eos: eos, localUserId: eos.authModel.localUserId!, targetUserId: epicAccountId))
 
             NavigationLink("Logout", destination: EosResultView("Logout") {
                 try eos.auth.Logout(LocalUserId: epicAccountId, CompletionDelegate: $0)
+            } views: {
+                KeyValueText("Result:", $0.ResultCode.description)
             })
         }
         .navigationTitle("Epic Account Id")
@@ -31,3 +35,4 @@ struct EosEpicAccountView: View {
 }
 
 extension SwiftEOS_Auth_LogoutCallbackInfo: CallbackInfoWithResult {}
+extension SwiftEOS_Achievements_OnQueryDefinitionsCompleteCallbackInfo: CallbackInfoWithResult {}

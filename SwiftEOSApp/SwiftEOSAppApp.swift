@@ -42,6 +42,7 @@ struct SwiftEOSAppApp: App {
     }
 }
 
+
 extension Color {
     static var translatorBackground: Color {
         Color(red: Double(0x10) / 255.0, green: Double(0x1c) / 255.0, blue: Double(0x10) / 255.0)

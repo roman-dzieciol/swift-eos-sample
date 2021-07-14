@@ -14,7 +14,7 @@ struct EosEpicAccountsListView: View {
 
     var body: some View {
         List(epicAccountIds) { epicAccountId in
-            NavigationLink(epicAccountId.description, destination: EosEpicAccountView(eos: eos, epicAccountId: epicAccountId))
+            NavigationLink(eos.authModel.toString(id: epicAccountId) ?? "", destination: EosEpicAccountView(eos: eos, epicAccountId: epicAccountId))
         }
     }
 }

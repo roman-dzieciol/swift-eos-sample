@@ -15,8 +15,8 @@ struct EosCopyUserInfoView: View {
 
     var body: some View {
         List {
-            KeyValueText("Local:", localUserId.description)
-            KeyValueText("Target:", targetUserId.description)
+            KeyValueText("Local:", eos.authModel.toString(id: localUserId))
+            KeyValueText("Target:", eos.authModel.toString(id: targetUserId))
             NavigationLink("Copy User Info", destination: EosCheckedView("Copy User Info") {
                 try eos.userInfo.CopyUserInfo(LocalUserId: localUserId, TargetUserId: localUserId)
             } views: {

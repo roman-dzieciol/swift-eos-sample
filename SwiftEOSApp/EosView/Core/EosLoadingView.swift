@@ -4,33 +4,54 @@ import EOSSDK
 import SwiftEOS
 
 
-struct EosLoadingView<Item, Content>: View where Content : View {
+struct EosLoadingView<CallbackInfo, BuilderView>: View where BuilderView: View {
+
+    let title: String
+
+    let call: (@escaping (Result<CallbackInfo, Error>) -> Void) throws -> Void
+    let views: (CallbackInfo) -> BuilderView
 
     @State
-    var result: Item? = nil
+    var result: Result<CallbackInfo, Error>? = nil
 
-    var load: (@escaping (Item) -> Void) throws -> Void
-    var builder: (Item) throws -> Content
+    init(
+        _ title: String,
+        _ call: @escaping (@escaping (Result<CallbackInfo, Error>) -> Void) throws -> Void,
+        views:  @escaping (CallbackInfo) -> BuilderView
+    ) {
+        self.title = title
+        self.call = call
+        self.views = views
+    }
 
-    public init(load: @escaping (@escaping (Item) -> Void) throws -> Void, @ViewBuilder builder: @escaping (Item) throws -> Content) {
-        self.load = load
-        self.builder = builder
+    func checked(_ call: () throws -> Void) {
+        do {
+            try call()
+        } catch {
+            result = .failure(error)
+        }
+    }
+
+    func load() {
+        checked {
+            try call() { info in
+                result = info
+            }
+        }
     }
 
     var body: some View {
-
-        if let result = result {
-            try! builder(result)
-        } else {
-            ProgressView()
-                .onAppear {
-                    try! load { result in
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
-                            self.result = result
-                        }
-                    }
-                }
+        Group {
+            if case let .success(info) = result {
+                views(info)
+            } else if case let .failure(error) = result {
+                KeyValueText("Error:", "\(error)")
+                    .foregroundColor(.red)
+            } else {
+                ProgressView().onAppear { load() }
+            }
         }
+        .navigationTitle(title)
     }
 }
 
@@ -38,18 +59,33 @@ protocol CallbackInfoWithResult {
     var ResultCode: EOS_EResult { get }
 }
 
-struct EosResultView<CallbackInfo: CallbackInfoWithResult>: View {
+struct EosResultView<CallbackInfo, BuilderView>: View where CallbackInfo: CallbackInfoWithResult, BuilderView: View {
 
     let title: String
 
     let call: (@escaping (CallbackInfo) -> Void) throws -> Void
+    let views: (CallbackInfo) -> BuilderView
 
     @State
     var result: Result<CallbackInfo, Error>? = nil
 
-    init(_ title: String, _ call: @escaping (@escaping (CallbackInfo) -> Void) throws -> Void) {
+    init(
+        _ title: String,
+        _ call: @escaping (@escaping (CallbackInfo) -> Void) throws -> Void,
+        views:  @escaping (CallbackInfo) -> BuilderView
+    ) {
         self.title = title
         self.call = call
+        self.views = views
+    }
+
+    init(
+        _ title: String,
+        _ call: @escaping (@escaping (CallbackInfo) -> Void) throws -> Void
+    ) {
+        self.title = title
+        self.call = call
+        self.views = { KeyValueText("Result:", $0.ResultCode.description) as! BuilderView }
     }
 
     func checked(_ call: () throws -> Void) {
@@ -74,9 +110,10 @@ struct EosResultView<CallbackInfo: CallbackInfoWithResult>: View {
     var body: some View {
         Group {
             if case let .success(info) = result {
-                KeyValueText("Result:", info.ResultCode.description)
+                views(info)
             } else if case let .failure(error) = result {
                 KeyValueText("Error:", "\(error)")
+                    .foregroundColor(.red)
             } else {
                 ProgressView().onAppear { load() }
             }
@@ -126,6 +163,7 @@ struct EosCheckedView<Info, BuilderView>: View where BuilderView: View {
                 views(info)
             } else if case let .failure(error) = result {
                 KeyValueText("Error:", "\(error)")
+                    .foregroundColor(.red)
             } else {
                 ProgressView().onAppear { load() }
             }

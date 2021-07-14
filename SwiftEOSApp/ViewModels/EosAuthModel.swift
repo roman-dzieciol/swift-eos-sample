@@ -6,101 +6,42 @@ import os.log
 import Combine
 import AuthenticationServices
 
-
-extension SwiftEOS_Platform_Actor {
-
-    public func auth() throws -> SwiftEOS_Auth_Actor {
-        try throwingNilResult(GetAuthInterface)
-    }
-
-    public func userInfo() throws -> SwiftEOS_UserInfo_Actor {
-        try throwingNilResult(GetUserInfoInterface)
-    }
-}
-
-
-class SwiftEOSModel: ObservableObject {
+class EosAuthModel: ObservableObject {
 
     @Published var isLoggedIn: Bool = false
+    @Published var currentStatus: EOS_ELoginStatus = .EOS_LS_NotLoggedIn
     @Published var localUserId: EOS_EpicAccountId?
 
-    var auth: SwiftEOS_Auth_Actor {
-        asserting(platform.auth)
-    }
+    let platform: SwiftEOS_Platform_Actor
 
-    var userInfo: SwiftEOS_UserInfo_Actor {
-        asserting(platform.userInfo)
-    }
-
-    let queue = DispatchQueue(label: "eos")
-
-    var platform: SwiftEOS_Platform_Actor!
     var authNotify: AnyObject?
 
-    init() {
-        Logger.app.log("init SwiftEOSModel")
-        asserting(initialize)
+    init(platform: SwiftEOS_Platform_Actor) throws {
+        self.platform = platform
+        try addLoginotification()
     }
 
-    deinit {
-        Logger.app.log("deinit SwiftEOSModel")
-        EOS_Platform_Release(platform.Handle)
-        asserting(SwiftEOS_Shutdown)
-    }
-
-    func initialize() throws {
-
-        try SwiftEOS_Initialize(Options: .init(AllocateMemoryFunction: nil,
-                                               ReallocateMemoryFunction: nil,
-                                               ReleaseMemoryFunction: nil,
-                                               ProductName: "SwiftEOS",
-                                               ProductVersion: "1.0",
-                                               Reserved: nil,
-                                               SystemInitializeOptions: nil,
-                                               OverrideThreadAffinity: nil))
-
-        try SwiftEOS_Logging_SetLogLevel(LogCategory: .EOS_LC_ALL_CATEGORIES, LogLevel: .EOS_LOG_VeryVerbose)
-
-        try SwiftEOS_Logging_SetCallback { ptr in
-            Logger.log(ptr)
+    func toString(id: EOS_EpicAccountId?) -> String? {
+        do {
+            guard let id = id else { return nil }
+            return try throwingNilResult { try SwiftEOS_EpicAccountId_ToString(AccountId: id) }
+        } catch {
+            return "<Error: \(error)>"
         }
+    }
 
-        let platformHandle = try SwiftEOS_Platform_Create(Options: SwiftEOS_Platform_Options(
-            Reserved: nil,
-            ProductId: "b1d7c98288894e3c974a3c5cea4d8d96",
-            SandboxId: "6d3208980404483a8e104183c84f248e",
-            ClientCredentials: SwiftEOS_Platform_ClientCredentials(
-                ClientId: "xyza7891kqydbLUAGkkvGGj07XOdcQIR",
-                ClientSecret: "Z2OslQ04RsWmzBibGyY/T7GHQX/52UMetIgS7z6z/aA"),
-            bIsServer: false,
-            EncryptionKey: nil,
-            OverrideCountryCode: nil,
-            OverrideLocaleCode: nil,
-            DeploymentId: "214e791b208b4315a3a1e2b029d5569f",
-            Flags: 0,
-            CacheDirectory: nil,
-            TickBudgetInMilliseconds: 100,
-            RTCOptions: nil))
-
-        platform = SwiftEOS_Platform_Actor(Handle: platformHandle)
+    func addLoginotification() throws {
 
         authNotify = try platform.auth().AddNotifyLoginStatusChanged(Notification: { info in
-            os_log("%{public}s", " \(String(describing: info.LocalUserId)): \(info.PrevStatus) -> \(info.CurrentStatus)")
+            Logger.auth.log("\(String(describing: info.LocalUserId), privacy: .public): \(info.PrevStatus) -> \(info.CurrentStatus)")
             DispatchQueue.main.async { [weak self] in
+                self?.currentStatus = info.CurrentStatus
                 self?.isLoggedIn = info.CurrentStatus == .EOS_LS_LoggedIn
+                if self?.isLoggedIn != true {
+                    self?.localUserId = nil
+                }
             }
         })
-
-        tick()
-    }
-
-    func tick() {
-        queue.asyncAfter(deadline: .now() + 0.1) {
-            DispatchQueue.main.async {
-                self.platform.Tick()
-                self.tick()
-            }
-        }
     }
 
     func login(_ completion: @escaping (Result<Void,Error>) -> Void) throws {
@@ -197,12 +138,17 @@ class SwiftEOSModel: ObservableObject {
     ) throws {
         try platform.auth().Login(Credentials: Credentials, ScopeFlags: ScopeFlags, CompletionDelegate: { info in
             DispatchQueue.main.async {
-                os_log("login: %{public}s", SwiftEOS_EResult_ToString(Result: info.ResultCode) ?? "")
+                Logger.auth.log("\(info.ResultCode.description, privacy: .public)")
 
                 guard asserting(info.ResultCode.isComplete) else { return }
 
                 if info.ResultCode == .EOS_Success {
-                    os_log("login: %{public}s", " \(String(describing: info.LocalUserId)): \(String(describing: info.PinGrantInfo)) \(String(describing: info.ContinuanceToken)) \(String(describing: info.AccountFeatureRestrictedInfo))")
+                    Logger.auth.log("""
+                                    \(self.toString(id: info.LocalUserId) ?? "", privacy: .public): \
+                                    \(String(describing: info.PinGrantInfo)) \
+                                    \(String(describing: info.ContinuanceToken)) \
+                                    \(String(describing: info.AccountFeatureRestrictedInfo))
+                                    """)
 
                     self.localUserId = info.LocalUserId
                 }
@@ -213,10 +159,11 @@ class SwiftEOSModel: ObservableObject {
     }
 }
 
-
 class EOSWebAuthenticationPresentationContextProviding: UIViewController, ASWebAuthenticationPresentationContextProviding {
 
     func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
         return UIApplication.shared.windows.first { $0.isKeyWindow }!
     }
 }
+
+

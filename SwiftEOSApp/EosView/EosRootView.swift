@@ -11,17 +11,17 @@ struct EosRootView: View {
     var eos: SwiftEOSModel
 
     var body: some View {
-
-        if eos.isLoggedIn, let localUserId = eos.localUserId {
+        VStack(alignment: .leading, spacing: .zero) {
             NavigationView {
-                EosLoggedInView(eos: eos, localUserId: localUserId)
-            }
-        }
-        else {
-            NavigationView {
-                EosLoginView(eos: eos)
+                EosMainView(eos: eos)
                     .navigationTitle("Epic Online Services")
             }
+
+            Divider()
+            KeyValueText("Epic - \(eos.authModel.currentStatus.description)", eos.authModel.toString(id: eos.authModel.localUserId))
+                .padding([.horizontal])
+            KeyValueText("Product - \(eos.connectModel.currentStatus.description)", eos.connectModel.toString(id: eos.connectModel.localUserId))
+                .padding([.horizontal])
         }
     }
 }

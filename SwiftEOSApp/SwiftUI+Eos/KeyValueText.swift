@@ -36,14 +36,14 @@ struct KeyValueText: View {
     @ViewBuilder var body: some View {
         VStack(alignment: .leading, spacing: .zero) {
             Text(key)
-                .font(.callout)
+                .font(.footnote)
                 .foregroundColor(.eosSecondary)
 
             if let value = value {
 
                 if !value.isEmpty {
                     Text(value.hasWhitespace ? "\"" : "")
-                        .font(.subheadline)
+                        .font(.system(.body, design: .monospaced))
                         .foregroundColor(.red)
 
                     + Text(value.text)
@@ -51,16 +51,16 @@ struct KeyValueText: View {
                         .underline(value.hasWhitespace, color: Color.red)
 
                     + Text(value.hasWhitespace ? "\"" : "")
-                        .font(.subheadline)
+                        .font(.system(.body, design: .monospaced))
                         .foregroundColor(.red)
                 } else {
                     Text("<Empty String>")
-                        .font(.footnote)
+                        .font(.system(.body, design: .monospaced))
                         .foregroundColor(.red)
                 }
             } else {
                 Text("<NULL>")
-                    .font(.footnote)
+                    .font(.system(.body, design: .monospaced))
                     .foregroundColor(.red)
             }
         }
@@ -70,6 +70,32 @@ struct KeyValueText: View {
             }) {
                 Text("Copy")
             }
+        }
+    }
+}
+
+
+struct KeyValueTextField: View {
+
+    let key: String
+
+    @Binding
+    var value: String
+
+    init(_ key: String, _ value: Binding<String>) {
+        self.key = key
+        _value = value
+    }
+
+    @ViewBuilder var body: some View {
+        VStack(alignment: .leading, spacing: .zero) {
+            Text(key)
+                .font(.footnote)
+                .foregroundColor(.eosSecondary)
+
+            TextField(key, text: $value)
+                .font(.system(.body, design: .monospaced))
+                .textFieldStyle(.roundedBorder)
         }
     }
 }

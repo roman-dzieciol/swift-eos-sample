@@ -5,7 +5,7 @@ import SwiftEOS
 import EOSSDK
 
 
-struct EosQueryUserInfoView: View {
+struct EosQueryPlayerAchievementsView: View {
 
     @ObservedObject
     var eos: SwiftEOSModel
@@ -18,14 +18,14 @@ struct EosQueryUserInfoView: View {
         List {
             KeyValueText("Local:", eos.authModel.toString(id: localUserId))
             KeyValueText("Target:", eos.authModel.toString(id: targetUserId))
-            NavigationLink("Query User Info", destination: EosResultView("Query User Info") {
-                try eos.userInfo.QueryUserInfo(LocalUserId: localUserId, TargetUserId: targetUserId, CompletionDelegate: $0)
+            NavigationLink("Query Player Achievements", destination: EosResultView("Query Player Achievements") {
+                try eos.achievements.QueryPlayerAchievements(TargetUserId: targetUserId, LocalUserId: localUserId, CompletionDelegate: $0)
             } views: {
                 KeyValueText("Result:", $0.ResultCode.description)
             })
         }
-        .navigationTitle("Query User Info")
+        .navigationTitle("Query Player Achievements")
     }
 }
 
-extension SwiftEOS_UserInfo_QueryUserInfoCallbackInfo: CallbackInfoWithResult {}
+extension SwiftEOS_Achievements_OnQueryPlayerAchievementsCompleteCallbackInfo: CallbackInfoWithResult {}
