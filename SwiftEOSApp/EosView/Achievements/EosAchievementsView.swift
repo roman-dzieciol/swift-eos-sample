@@ -14,7 +14,7 @@ struct EosAchievementsView: View {
 
         List {
             NavigationLink("Query Definitions", destination: EosResultView("Query Definitions") {
-                try eos.achievements.QueryDefinitions(LocalUserId: eos.connectModel.localUserId!, EpicUserId_DEPRECATED: nil, HiddenAchievementIds_DEPRECATED: nil, CompletionDelegate: $0)
+                try eos.achievements.QueryDefinitions(LocalUserId: eos.connectModel.localUserId, EpicUserId_DEPRECATED: nil, HiddenAchievementIds_DEPRECATED: nil, CompletionDelegate: $0)
             } views: {
                 KeyValueText("Result:", $0.ResultCode.description)
             })

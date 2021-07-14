@@ -34,6 +34,12 @@ struct EosAuthView: View {
                 Text("Logged in")
             })
 
+            NavigationLink("Delete Persistent Auth", destination: EosResultView("Delete Persistent Auth") {
+                try eos.auth.DeletePersistentAuth(RefreshToken: nil, CompletionDelegate: $0)
+            } views: {
+                KeyValueText("Result:", $0.ResultCode.description)
+            })
+
             NavigationLink("Get Logged In Accounts", destination: EosCheckedView("Get Logged In Accounts") {
                 let accountsNum = try eos.auth.GetLoggedInAccountsCount()
                 return try (0..<accountsNum).map { try eos.auth.GetLoggedInAccountByIndex(Index: $0) }
@@ -67,12 +73,6 @@ struct EosAuthView: View {
                     KeyValueText("Result:", $0.ResultCode.description)
                 })
             }
-
-            NavigationLink("Delete Persistent Auth", destination: EosResultView("Delete Persistent Auth") {
-                try eos.auth.DeletePersistentAuth(RefreshToken: nil, CompletionDelegate: $0)
-            } views: {
-                KeyValueText("Result:", $0.ResultCode.description)
-            })
         }
     }
 }
