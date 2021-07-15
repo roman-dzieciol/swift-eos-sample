@@ -1,9 +1,9 @@
 
-
 import Foundation
 import SwiftUI
 import SwiftEOS
 import EOSSDK
+
 
 struct EosEpicAccountsListView: View {
 

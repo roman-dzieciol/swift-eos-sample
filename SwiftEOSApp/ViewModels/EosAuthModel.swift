@@ -6,6 +6,7 @@ import os.log
 import Combine
 import AuthenticationServices
 
+
 class EosAuthModel: ObservableObject {
 
     @Published var isLoggedIn: Bool = false

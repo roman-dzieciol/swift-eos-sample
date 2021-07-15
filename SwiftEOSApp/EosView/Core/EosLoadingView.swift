@@ -1,7 +1,8 @@
 
+import Foundation
 import SwiftUI
-import EOSSDK
 import SwiftEOS
+import EOSSDK
 
 
 struct EosLoadingView<CallbackInfo, BuilderView>: View where BuilderView: View {

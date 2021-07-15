@@ -13,7 +13,6 @@ struct EosConnectView: View {
     let connectModel: EosConnectModel
 
     var body: some View {
-
         List {
 
             NavigationLink("Login (Device)", destination: EosLoadingView("Login (Device)") { completion in
@@ -28,6 +27,19 @@ struct EosConnectView: View {
                 try eos.connect.DeleteDeviceId() { completion($0) }
             } views: {
                 KeyValueText("Result:", $0.ResultCode.description)
+            })
+
+            NavigationLink("Get Logged In Users", destination: EosCheckedView("Get Logged In Users") {
+                let accountsNum = try eos.connect.GetLoggedInUsersCount()
+                return try (0..<accountsNum).map { try eos.connect.GetLoggedInUserByIndex(Index: $0) }
+            } views: {
+                EosProductUserIdListView(eos: eos, productUserIds: $0)
+            })
+
+            NavigationLink("Copy Product User Info", destination: EosCheckedView("Copy Product User Info") {
+                try eos.connect.CopyProductUserInfo(TargetUserId: eos.connectModel.localUserId)
+            } views: {
+                EosProductUserInfoView(eos: eos, info: $0)
             })
         }
     }

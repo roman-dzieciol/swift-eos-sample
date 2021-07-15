@@ -2,6 +2,8 @@
 import Foundation
 import SwiftUI
 import SwiftEOS
+import EOSSDK
+
 
 struct EosAchievementDefinitionView: View {
 

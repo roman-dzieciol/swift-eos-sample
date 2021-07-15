@@ -30,6 +30,9 @@
 		71CC925E269D3408006F0260 /* EosAchievementDefinitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CC925D269D3408006F0260 /* EosAchievementDefinitionView.swift */; };
 		71CC9260269D3435006F0260 /* EosAchievementDefinitionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CC925F269D3435006F0260 /* EosAchievementDefinitionListView.swift */; };
 		71CC9262269D39C7006F0260 /* EosAchievementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CC9261269D39C7006F0260 /* EosAchievementsView.swift */; };
+		71D09D48269F86E3003C4786 /* EosProductUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D09D47269F86E3003C4786 /* EosProductUserInfoView.swift */; };
+		71D09D4A269F8752003C4786 /* EosProductUserIdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D09D49269F8752003C4786 /* EosProductUserIdView.swift */; };
+		71D09D4C269F9605003C4786 /* EosProductUserIdListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D09D4B269F9605003C4786 /* EosProductUserIdListView.swift */; };
 		71DEFFCF269E60AC00030718 /* EosConnectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DEFFCE269E60AC00030718 /* EosConnectView.swift */; };
 		71EF6DF6269A6BB800303231 /* SwiftEOS in Frameworks */ = {isa = PBXBuildFile; productRef = 71EF6DF5269A6BB800303231 /* SwiftEOS */; };
 		71F13A0B269B8F190095A191 /* EosAuthTokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F13A0A269B8F190095A191 /* EosAuthTokenView.swift */; };
@@ -97,6 +100,9 @@
 		71CC925D269D3408006F0260 /* EosAchievementDefinitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EosAchievementDefinitionView.swift; sourceTree = "<group>"; };
 		71CC925F269D3435006F0260 /* EosAchievementDefinitionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EosAchievementDefinitionListView.swift; sourceTree = "<group>"; };
 		71CC9261269D39C7006F0260 /* EosAchievementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EosAchievementsView.swift; sourceTree = "<group>"; };
+		71D09D47269F86E3003C4786 /* EosProductUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EosProductUserInfoView.swift; sourceTree = "<group>"; };
+		71D09D49269F8752003C4786 /* EosProductUserIdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EosProductUserIdView.swift; sourceTree = "<group>"; };
+		71D09D4B269F9605003C4786 /* EosProductUserIdListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EosProductUserIdListView.swift; sourceTree = "<group>"; };
 		71DEFFCE269E60AC00030718 /* EosConnectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EosConnectView.swift; sourceTree = "<group>"; };
 		71EF6DF4269A6B2400303231 /* swift-eos */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "swift-eos"; path = "../../swift-eos"; sourceTree = "<group>"; };
 		71F13A0A269B8F190095A191 /* EosAuthTokenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EosAuthTokenView.swift; sourceTree = "<group>"; };
@@ -266,6 +272,9 @@
 			isa = PBXGroup;
 			children = (
 				71DEFFCE269E60AC00030718 /* EosConnectView.swift */,
+				71D09D47269F86E3003C4786 /* EosProductUserInfoView.swift */,
+				71D09D49269F8752003C4786 /* EosProductUserIdView.swift */,
+				71D09D4B269F9605003C4786 /* EosProductUserIdListView.swift */,
 				71879DA8269E8CC100FEDD26 /* EosCreateDeviceIdView.swift */,
 			);
 			path = Connect;
@@ -425,8 +434,10 @@
 				71CC924F269CB25E006F0260 /* EosQueryUserInfoView.swift in Sources */,
 				71CC9249269CAB84006F0260 /* KeyValueText.swift in Sources */,
 				71CC9247269CA93A006F0260 /* Text+Eos.swift in Sources */,
+				71D09D48269F86E3003C4786 /* EosProductUserInfoView.swift in Sources */,
 				71F13A11269B9E950095A191 /* EosEpicAccountView.swift in Sources */,
 				71F13A1A269BBEF50095A191 /* EosRootView.swift in Sources */,
+				71D09D4C269F9605003C4786 /* EosProductUserIdListView.swift in Sources */,
 				71F13A0F269B9D040095A191 /* EosEpicAccountsListView.swift in Sources */,
 				7122CCDB2692908400143BF1 /* SwiftEOSModel.swift in Sources */,
 				71879DA9269E8CC100FEDD26 /* EosCreateDeviceIdView.swift in Sources */,
@@ -437,6 +448,7 @@
 				71DEFFCF269E60AC00030718 /* EosConnectView.swift in Sources */,
 				71879DA0269E701F00FEDD26 /* EosConnectModel.swift in Sources */,
 				71CC9253269CBF49006F0260 /* EosCopyUserInfoView.swift in Sources */,
+				71D09D4A269F8752003C4786 /* EosProductUserIdView.swift in Sources */,
 				71F13A17269BBAF90095A191 /* EosLoadingView.swift in Sources */,
 				71879D9E269E701600FEDD26 /* EosAuthModel.swift in Sources */,
 				71879DA7269E745200FEDD26 /* EosAuthView.swift in Sources */,

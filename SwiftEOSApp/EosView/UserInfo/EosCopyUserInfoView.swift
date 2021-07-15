@@ -4,6 +4,7 @@ import SwiftUI
 import SwiftEOS
 import EOSSDK
 
+
 struct EosCopyUserInfoView: View {
 
     @ObservedObject

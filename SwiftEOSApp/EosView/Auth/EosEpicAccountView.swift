@@ -22,8 +22,6 @@ struct EosEpicAccountView: View {
             NavigationLink("Query User Info", destination: EosQueryUserInfoView(eos: eos, localUserId: eos.authModel.localUserId!, targetUserId: epicAccountId))
             NavigationLink("Copy User Info", destination: EosCopyUserInfoView(eos: eos, localUserId: eos.authModel.localUserId!, targetUserId: epicAccountId))
 
-            NavigationLink("Query Player Achievements", destination: EosQueryPlayerAchievementsView(eos: eos, localUserId: eos.authModel.localUserId!, targetUserId: epicAccountId))
-
             NavigationLink("Logout", destination: EosResultView("Logout") {
                 try eos.auth.Logout(LocalUserId: epicAccountId, CompletionDelegate: $0)
             } views: {
