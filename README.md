@@ -14,4 +14,4 @@ Sample app for Swift EOS SDK bindings
 * Swipe right to navigate to previous screen
 * Long press on an item to copy the value
 * Strings with leading or trailing spaces are underscored and quoted in red
-* Null or empty strings are displayed as red <NULL> or <Empty String> text
+* Null or empty strings are displayed as red `<NULL>` or `<Empty String>` text
