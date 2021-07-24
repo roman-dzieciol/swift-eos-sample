@@ -15,7 +15,7 @@ struct EosAuthTokenView: View {
     var body: some View {
         List {
             Group {
-                NavigationLink("Verify", destination: EosResultView("Verify") {
+                NavigationLink("Verify", destination: EosResultCodeView("Verify") {
                     try eos.auth.VerifyUserAuth(AuthToken: token, CompletionDelegate: $0)
                 } views: {
                     KeyValueText("Result:", $0.ResultCode.description)

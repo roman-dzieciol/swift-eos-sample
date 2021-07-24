@@ -16,7 +16,7 @@ struct EosProductUserIdView: View {
         List {
             KeyValueText("ProductUserId:", eos.connectModel.toString(id: productUserId))
 
-            NavigationLink("Copy Product User Info", destination: EosCheckedView("Copy Product User Info") {
+            NavigationLink("Copy Product User Info", destination: EosCompletionView("Copy Product User Info") {
                 try eos.connect.CopyProductUserInfo(TargetUserId: productUserId)
             } views: {
                 EosProductUserInfoView(eos: eos, info: $0)

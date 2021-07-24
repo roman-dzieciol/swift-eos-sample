@@ -18,7 +18,7 @@ struct EosQueryPlayerAchievementsView: View {
         List {
             KeyValueText("Local:", eos.authModel.toString(id: localUserId))
             KeyValueText("Target:", eos.authModel.toString(id: targetUserId))
-            NavigationLink("Query Player Achievements", destination: EosResultView("Query Player Achievements") {
+            NavigationLink("Query Player Achievements", destination: EosResultCodeView("Query Player Achievements") {
                 try eos.achievements.QueryPlayerAchievements(TargetUserId: targetUserId, LocalUserId: localUserId, CompletionDelegate: $0)
             } views: {
                 KeyValueText("Result:", $0.ResultCode.description)
