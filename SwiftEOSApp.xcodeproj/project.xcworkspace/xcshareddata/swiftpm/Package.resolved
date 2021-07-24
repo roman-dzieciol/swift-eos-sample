@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "swift-eos",
+        "repositoryURL": "https://github.com/roman-dzieciol/swift-eos",
+        "state": {
+          "branch": "main",
+          "revision": "777655acf1c63fc5ccfaf2fb0061defb80946134",
+          "version": null
+        }
+      },
+      {
+        "package": "swift-eos-test",
+        "repositoryURL": "https://github.com/roman-dzieciol/swift-eos-test",
+        "state": {
+          "branch": "main",
+          "revision": "1c31cf468705bbd589d30e20c8eec5c679006f05",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -42,7 +42,7 @@ struct EosAuthView: View {
 
             NavigationLink("Get Logged In Accounts", destination: EosCheckedView("Get Logged In Accounts") {
                 let accountsNum = try eos.auth.GetLoggedInAccountsCount()
-                return try (0..<accountsNum).map { try eos.auth.GetLoggedInAccountByIndex(Index: $0) }
+                return try (0..<accountsNum).compactMap { try eos.auth.GetLoggedInAccountByIndex(Index: $0) }
             } views: {
                 EosEpicAccountsListView(eos: eos, epicAccountIds: $0)
             })

@@ -31,7 +31,7 @@ struct EosConnectView: View {
 
             NavigationLink("Get Logged In Users", destination: EosCheckedView("Get Logged In Users") {
                 let accountsNum = try eos.connect.GetLoggedInUsersCount()
-                return try (0..<accountsNum).map { try eos.connect.GetLoggedInUserByIndex(Index: $0) }
+                return try (0..<accountsNum).compactMap { try eos.connect.GetLoggedInUserByIndex(Index: $0) }
             } views: {
                 EosProductUserIdListView(eos: eos, productUserIds: $0)
             })
