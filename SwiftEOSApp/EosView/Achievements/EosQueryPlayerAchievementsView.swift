@@ -16,8 +16,8 @@ struct EosQueryPlayerAchievementsView: View {
 
     var body: some View {
         List {
-            KeyValueText("Local:", eos.authModel.toString(id: localUserId))
-            KeyValueText("Target:", eos.authModel.toString(id: targetUserId))
+            KeyValueText("Local:", EosEpicAccountId(localUserId))
+            KeyValueText("Target:", EosEpicAccountId(targetUserId))
             EosNavigationLink("Query Player Achievements").awaitResultCode {
                 try eos.achievements.QueryPlayerAchievements(TargetUserId: targetUserId, LocalUserId: localUserId, CompletionDelegate: $0)
             } views: {

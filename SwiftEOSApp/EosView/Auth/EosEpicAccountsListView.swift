@@ -19,7 +19,7 @@ struct EosEpicAccountsListView: View {
                 .foregroundColor(.red)
         } else {
             List(epicAccountIds) { epicAccountId in
-                NavigationLink(eos.authModel.toString(id: epicAccountId) ?? "", destination: EosEpicAccountView(eos: eos, epicAccountId: epicAccountId))
+                NavigationLink(EosEpicAccountId(epicAccountId).description, destination: EosEpicAccountView(eos: eos, epicAccountId: epicAccountId))
             }
         }
     }

@@ -23,15 +23,6 @@ class EosConnectModel: ObservableObject {
         try addLoginotification()
     }
 
-    func toString(id: EOS_ProductUserId?) -> String? {
-        do {
-            guard let id = id else { return nil }
-            return try throwingNilResult { try SwiftEOS_ProductUserId_ToString(AccountId: id) }
-        } catch {
-            return "<Error: \(error)>"
-        }
-    }
-
     func addLoginotification() throws {
 
         connectNotify = try platform.connect().AddNotifyLoginStatusChanged(Notification: { info in

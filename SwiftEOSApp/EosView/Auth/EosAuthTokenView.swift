@@ -23,7 +23,7 @@ struct EosAuthTokenView: View {
                 KeyValueText("App:", token.App)
                 KeyValueText("ClientId:", token.ClientId)
                 NavigationLink(destination: EosEpicAccountView(eos: eos, epicAccountId: token.AccountId!)) {
-                    KeyValueText("AccountId:", eos.authModel.toString(id: token.AccountId))
+                    KeyValueText("AccountId:", EosEpicAccountId(token.AccountId))
                 }
             }
             Group {

@@ -15,6 +15,11 @@ struct EosNavigationLink {
     init(_ navigationTitle: String) {
         self.navigationTitle = navigationTitle
     }
+    func view<BuilderView: View>(
+        _ views:  @escaping () -> BuilderView
+    ) -> some View {
+        NavigationLink(navigationTitle, destination: views())
+    }
 
     func result<Value, BuilderView: View>(
         _ call: @escaping () throws -> Value,

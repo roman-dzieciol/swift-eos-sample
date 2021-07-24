@@ -22,15 +22,6 @@ class EosAuthModel: ObservableObject {
         try addLoginotification()
     }
 
-    func toString(id: EOS_EpicAccountId?) -> String? {
-        do {
-            guard let id = id else { return nil }
-            return try throwingNilResult { try SwiftEOS_EpicAccountId_ToString(AccountId: id) }
-        } catch {
-            return "<Error: \(error)>"
-        }
-    }
-
     func addLoginotification() throws {
 
         authNotify = try platform.auth().AddNotifyLoginStatusChanged(Notification: { info in
@@ -145,7 +136,7 @@ class EosAuthModel: ObservableObject {
 
                 if info.ResultCode == .EOS_Success {
                     Logger.auth.log("""
-                                    \(self.toString(id: info.LocalUserId) ?? "", privacy: .public): \
+                                    \(EosEpicAccountId(info.LocalUserId).description, privacy: .public): \
                                     \(String(describing: info.PinGrantInfo)) \
                                     \(String(describing: info.ContinuanceToken)) \
                                     \(String(describing: info.AccountFeatureRestrictedInfo))

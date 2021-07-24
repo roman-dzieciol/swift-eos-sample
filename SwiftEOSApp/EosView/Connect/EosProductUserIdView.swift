@@ -14,7 +14,7 @@ struct EosProductUserIdView: View {
 
     var body: some View {
         List {
-            KeyValueText("ProductUserId:", eos.connectModel.toString(id: productUserId))
+            KeyValueText("ProductUserId:", EosProductUserId(productUserId))
 
             EosNavigationLink("Copy Product User Info").result {
                 try eos.connect.CopyProductUserInfo(TargetUserId: productUserId)

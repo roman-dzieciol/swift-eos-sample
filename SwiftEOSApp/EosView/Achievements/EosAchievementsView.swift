@@ -19,12 +19,17 @@ struct EosAchievementsView: View {
                 KeyValueText("Result:", $0.ResultCode.description)
             }
 
-            EosNavigationLink("Get Definitions").result {
+            EosNavigationLink("Get Definitions By Index").result {
                 let num = try eos.achievements.GetAchievementDefinitionCount()
                 return try (0..<num).map { idx in try throwingNilResult { try eos.achievements.CopyAchievementDefinitionV2ByIndex(AchievementIndex: idx) } }
             } views: {
                 EosAchievementDefinitionListView(eos: eos, achievements: $0)
             }
+
+            EosNavigationLink("Get Definitions By Id").view {
+                EosCopyAchievementDefinitionV2ByAchievementIdView(eos: eos)
+            }
         }
     }
 }
+

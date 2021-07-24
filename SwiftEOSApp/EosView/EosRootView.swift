@@ -18,9 +18,9 @@ struct EosRootView: View {
             }
 
             Divider()
-            KeyValueText("Epic - \(eos.authModel.currentStatus.description)", eos.authModel.toString(id: eos.authModel.localUserId))
+            KeyValueText("Epic - \(eos.authModel.currentStatus.description)", EosEpicAccountId(eos.authModel.localUserId))
                 .padding([.horizontal])
-            KeyValueText("Product - \(eos.connectModel.currentStatus.description)", eos.connectModel.toString(id: eos.connectModel.localUserId))
+            KeyValueText("Product - \(eos.connectModel.currentStatus.description)", EosProductUserId(eos.connectModel.localUserId))
                 .padding([.horizontal])
         }
     }

@@ -14,7 +14,7 @@ struct EosUserInfoView: View {
 
     var body: some View {
         List {
-            KeyValueText("UserId:", eos.authModel.toString(id: userInfo.UserId))
+            KeyValueText("UserId:", EosEpicAccountId(userInfo.UserId))
             KeyValueText("Country:", userInfo.Country)
             KeyValueText("DisplayName:", userInfo.DisplayName)
             KeyValueText("PreferredLanguage:", userInfo.PreferredLanguage)

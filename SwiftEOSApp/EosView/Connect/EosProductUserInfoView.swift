@@ -14,7 +14,7 @@ struct EosProductUserInfoView: View {
 
     var body: some View {
         List {
-            KeyValueText("ProductUserId:", eos.connectModel.toString(id: info.ProductUserId))
+            KeyValueText("ProductUserId:", EosProductUserId(info.ProductUserId))
             KeyValueText("DisplayName:", info.DisplayName)
             KeyValueText("AccountId:", info.AccountId)
             KeyValueText("AccountIdType:", info.AccountIdType.description)

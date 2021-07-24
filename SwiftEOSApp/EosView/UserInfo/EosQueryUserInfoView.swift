@@ -16,8 +16,8 @@ struct EosQueryUserInfoView: View {
 
     var body: some View {
         List {
-            KeyValueText("Local:", eos.authModel.toString(id: localUserId))
-            KeyValueText("Target:", eos.authModel.toString(id: targetUserId))
+            KeyValueText("Local:", EosEpicAccountId(localUserId))
+            KeyValueText("Target:", EosEpicAccountId(targetUserId))
             EosNavigationLink("Query User Info").awaitResultCode {
                 try eos.userInfo.QueryUserInfo(LocalUserId: localUserId, TargetUserId: targetUserId, CompletionDelegate: $0)
             } views: {

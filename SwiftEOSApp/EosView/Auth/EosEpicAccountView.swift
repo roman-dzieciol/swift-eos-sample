@@ -15,7 +15,7 @@ struct EosEpicAccountView: View {
     var body: some View {
 
         List {
-            KeyValueText("AccountId:", eos.authModel.toString(id: epicAccountId))
+            KeyValueText("AccountId:", EosEpicAccountId(epicAccountId))
 
             KeyValueText("Login status:", eos.auth.GetLoginStatus(LocalUserId: epicAccountId).description)
 

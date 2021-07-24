@@ -3,34 +3,20 @@ import SwiftUI
 
 struct KeyValueText: View {
 
-    struct VerifiedText {
-        let text: String
-        let leadingSpace: String
-        let trimmedText: String
-        let trailingSpace: String
+    let key: String
+    let value: EosCheckedString
 
-        var isEmpty: Bool {
-            text.isEmpty
-        }
-
-        var hasWhitespace: Bool {
-            !leadingSpace.isEmpty || !trailingSpace.isEmpty
-        }
-
-        init(text: String) {
-            self.text = text
-            leadingSpace = String(text.prefix(while: { $0.isWhitespace }))
-            trailingSpace = String(text.reversed().prefix(while: { $0.isWhitespace }).reversed())
-            trimmedText = String(text.dropFirst(leadingSpace.count).dropLast(trailingSpace.count))
-        }
+    init(_ key: String, _ value: EosCheckedStringConvertible) {
+        self.init(key, { try value.toString() })
     }
 
-    let key: String
-    let value: VerifiedText?
-
     init(_ key: String, _ value: String?) {
+        self.init(key, { value })
+    }
+
+    init(_ key: String, _ value: () throws -> String?) {
         self.key = key
-        self.value = value.map { VerifiedText(text: $0) }
+        self.value = EosCheckedString(try value())
     }
 
     @ViewBuilder var body: some View {
@@ -39,34 +25,29 @@ struct KeyValueText: View {
                 .font(.footnote)
                 .foregroundColor(.eosSecondary)
 
-            if let value = value {
+            switch value.state {
+            case .string:
+                Text(value.hasSpaces ? "\"" : "")
+                    .font(.system(.body, design: .monospaced))
+                    .foregroundColor(.red)
 
-                if !value.isEmpty {
-                    Text(value.hasWhitespace ? "\"" : "")
-                        .font(.system(.body, design: .monospaced))
-                        .foregroundColor(.red)
+                + Text(value.string)
+                    .font(.system(.body, design: .monospaced))
+                    .underline(value.hasSpaces, color: Color.red)
 
-                    + Text(value.text)
-                        .font(.system(.body, design: .monospaced))
-                        .underline(value.hasWhitespace, color: Color.red)
+                + Text(value.hasSpaces ? "\"" : "")
+                    .font(.system(.body, design: .monospaced))
+                    .foregroundColor(.red)
 
-                    + Text(value.hasWhitespace ? "\"" : "")
-                        .font(.system(.body, design: .monospaced))
-                        .foregroundColor(.red)
-                } else {
-                    Text("<Empty String>")
-                        .font(.system(.body, design: .monospaced))
-                        .foregroundColor(.red)
-                }
-            } else {
-                Text("<NULL>")
+            case .empty, .null, .error:
+                Text(value.string)
                     .font(.system(.body, design: .monospaced))
                     .foregroundColor(.red)
             }
         }
         .contextMenu {
             Button(action: {
-                UIPasteboard.general.string = value?.text
+                UIPasteboard.general.string = value.string
             }) {
                 Text("Copy")
             }
@@ -82,8 +63,26 @@ struct KeyValueTextField: View {
     @Binding
     var value: String
 
-    init(_ key: String, _ value: Binding<String>) {
+    @State
+    var isValid: Bool? = nil
+
+    let onValidate: (String) -> Bool
+
+    var validatedColor: Color {
+        if isValid == true {
+            return .eosPrimary
+        } else if isValid == false {
+            return .red
+        } else {
+            return .eosSecondary
+        }
+    }
+
+    init(_ key: String, _ value: Binding<String>, onValidate: @escaping (String) throws -> Bool = { _ in true }) {
         self.key = key
+        self.onValidate = { value in
+            return (try? onValidate(value)) == true
+        }
         _value = value
     }
 
@@ -93,9 +92,12 @@ struct KeyValueTextField: View {
                 .font(.footnote)
                 .foregroundColor(.eosSecondary)
 
-            TextField(key, text: $value)
+            TextField(key, text: $value, onCommit: {
+                isValid = onValidate(value)
+            })
                 .font(.system(.body, design: .monospaced))
                 .textFieldStyle(.roundedBorder)
+                .foregroundColor(validatedColor)
         }
     }
 }

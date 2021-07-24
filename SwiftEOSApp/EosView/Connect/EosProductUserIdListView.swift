@@ -19,7 +19,7 @@ struct EosProductUserIdListView: View {
                 .foregroundColor(.red)
         } else {
             List(productUserIds) { productUserId in
-                NavigationLink(eos.connectModel.toString(id: productUserId) ?? "",
+                NavigationLink(EosProductUserId(productUserId).description,
                                destination: EosProductUserIdView(eos: eos, productUserId: productUserId))
             }
         }
