@@ -34,13 +34,13 @@ struct EosAuthView: View {
                 Text("Logged in")
             })
 
-            NavigationLink("Delete Persistent Auth", destination: EosResultCodeView("Delete Persistent Auth") {
+            NavigationLink("Delete Persistent Auth", destination: EosCompletionResultCodeView("Delete Persistent Auth") {
                 try eos.auth.DeletePersistentAuth(RefreshToken: nil, CompletionDelegate: $0)
             } views: {
                 KeyValueText("Result:", $0.ResultCode.description)
             })
 
-            NavigationLink("Get Logged In Accounts", destination: EosCompletionView("Get Logged In Accounts") {
+            NavigationLink("Get Logged In Accounts", destination: EosResultView("Get Logged In Accounts") {
                 let accountsNum = try eos.auth.GetLoggedInAccountsCount()
                 return try (0..<accountsNum).compactMap { try eos.auth.GetLoggedInAccountByIndex(Index: $0) }
             } views: {
@@ -49,25 +49,25 @@ struct EosAuthView: View {
 
             if let localUserId = authModel.localUserId {
 
-                NavigationLink("Copy User Auth Token", destination: EosCompletionView("Copy User Auth Token") {
+                NavigationLink("Copy User Auth Token", destination: EosResultView("Copy User Auth Token") {
                     try eos.auth.CopyUserAuthToken(LocalUserId: localUserId)
                 } views: {
                     EosAuthTokenView(eos: eos, token: $0)
                 })
 
-                NavigationLink("Query User Info", destination: EosResultCodeView("Query User Info") {
+                NavigationLink("Query User Info", destination: EosCompletionResultCodeView("Query User Info") {
                     try eos.userInfo.QueryUserInfo(LocalUserId: localUserId, TargetUserId: localUserId, CompletionDelegate: $0)
                 } views: {
                     KeyValueText("Result:", $0.ResultCode.description)
                 })
 
-                NavigationLink("Copy User Info", destination: EosCompletionView("Copy User Info") {
+                NavigationLink("Copy User Info", destination: EosResultView("Copy User Info") {
                     try eos.userInfo.CopyUserInfo(LocalUserId: localUserId, TargetUserId: localUserId)
                 } views: {
                     EosUserInfoView(eos: eos, userInfo: $0)
                 })
 
-                NavigationLink("Logout", destination: EosResultCodeView("Logout") {
+                NavigationLink("Logout", destination: EosCompletionResultCodeView("Logout") {
                     try eos.auth.Logout(LocalUserId: localUserId, CompletionDelegate: $0)
                 } views: {
                     KeyValueText("Result:", $0.ResultCode.description)

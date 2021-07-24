@@ -60,7 +60,7 @@ protocol CallbackInfoWithResult {
     var ResultCode: EOS_EResult { get }
 }
 
-struct EosResultCodeView<CallbackInfo, BuilderView>: View where CallbackInfo: CallbackInfoWithResult, BuilderView: View {
+struct EosCompletionResultCodeView<CallbackInfo, BuilderView>: View where CallbackInfo: CallbackInfoWithResult, BuilderView: View {
 
     let title: String
 
@@ -124,7 +124,7 @@ struct EosResultCodeView<CallbackInfo, BuilderView>: View where CallbackInfo: Ca
 }
 
 
-struct EosCompletionView<Info, BuilderView>: View where BuilderView: View {
+struct EosResultView<Info, BuilderView>: View where BuilderView: View {
 
     let title: String
 

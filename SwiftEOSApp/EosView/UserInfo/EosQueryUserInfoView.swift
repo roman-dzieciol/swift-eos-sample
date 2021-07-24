@@ -18,7 +18,7 @@ struct EosQueryUserInfoView: View {
         List {
             KeyValueText("Local:", eos.authModel.toString(id: localUserId))
             KeyValueText("Target:", eos.authModel.toString(id: targetUserId))
-            NavigationLink("Query User Info", destination: EosResultCodeView("Query User Info") {
+            NavigationLink("Query User Info", destination: EosCompletionResultCodeView("Query User Info") {
                 try eos.userInfo.QueryUserInfo(LocalUserId: localUserId, TargetUserId: targetUserId, CompletionDelegate: $0)
             } views: {
                 KeyValueText("Result:", $0.ResultCode.description)
