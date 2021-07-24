@@ -15,11 +15,11 @@ struct EosAuthTokenView: View {
     var body: some View {
         List {
             Group {
-                NavigationLink("Verify", destination: EosCompletionResultCodeView("Verify") {
+                EosNavigationLink("Verify").awaitResultCode {
                     try eos.auth.VerifyUserAuth(AuthToken: token, CompletionDelegate: $0)
                 } views: {
                     KeyValueText("Result:", $0.ResultCode.description)
-                })
+                }
                 KeyValueText("App:", token.App)
                 KeyValueText("ClientId:", token.ClientId)
                 NavigationLink(destination: EosEpicAccountView(eos: eos, epicAccountId: token.AccountId!)) {

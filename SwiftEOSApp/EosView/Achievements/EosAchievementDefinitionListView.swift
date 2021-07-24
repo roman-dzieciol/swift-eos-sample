@@ -13,8 +13,14 @@ struct EosAchievementDefinitionListView: View {
     let achievements: [SwiftEOS_Achievements_DefinitionV2]
 
     var body: some View {
-        List(achievements) { achievement in
-            NavigationLink(achievement.AchievementId ?? "", destination: EosAchievementDefinitionView(eos: eos, achievement: achievement))
+        if achievements.isEmpty {
+            Text("<Empty List>")
+                .font(.system(.body, design: .monospaced))
+                .foregroundColor(.red)
+        } else {
+            List(achievements) { achievement in
+                NavigationLink(achievement.AchievementId ?? "", destination: EosAchievementDefinitionView(eos: eos, achievement: achievement))
+            }
         }
     }
 }

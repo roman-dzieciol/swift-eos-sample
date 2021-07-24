@@ -18,11 +18,11 @@ struct EosCreateDeviceIdView: View {
     var body: some View {
         List {
             KeyValueTextField("Device:", $name)
-            NavigationLink(title, destination: EosCompletionResultCodeView(title) { completion in
+            EosNavigationLink(title).awaitResultCode { completion in
                 try eos.connect.CreateDeviceId(DeviceModel: name) { completion($0) }
             } views: {
                 KeyValueText("Result:", $0.ResultCode.description)
-            })
+            }
         }
         .navigationTitle(title)
     }

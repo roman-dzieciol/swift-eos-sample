@@ -13,8 +13,14 @@ struct EosEpicAccountsListView: View {
     let epicAccountIds: [EOS_EpicAccountId]
 
     var body: some View {
-        List(epicAccountIds) { epicAccountId in
-            NavigationLink(eos.authModel.toString(id: epicAccountId) ?? "", destination: EosEpicAccountView(eos: eos, epicAccountId: epicAccountId))
+        if epicAccountIds.isEmpty {
+            Text("<Empty List>")
+                .font(.system(.body, design: .monospaced))
+                .foregroundColor(.red)
+        } else {
+            List(epicAccountIds) { epicAccountId in
+                NavigationLink(eos.authModel.toString(id: epicAccountId) ?? "", destination: EosEpicAccountView(eos: eos, epicAccountId: epicAccountId))
+            }
         }
     }
 }

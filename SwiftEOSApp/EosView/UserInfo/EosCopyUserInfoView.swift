@@ -18,11 +18,11 @@ struct EosCopyUserInfoView: View {
         List {
             KeyValueText("Local:", eos.authModel.toString(id: localUserId))
             KeyValueText("Target:", eos.authModel.toString(id: targetUserId))
-            NavigationLink("Copy User Info", destination: EosResultView("Copy User Info") {
+            EosNavigationLink("Copy User Info").result {
                 try eos.userInfo.CopyUserInfo(LocalUserId: localUserId, TargetUserId: localUserId)
             } views: {
                 EosUserInfoView(eos: eos, userInfo: $0)
-            })
+            }
         }
         .navigationTitle("CopyUserInfo")
     }

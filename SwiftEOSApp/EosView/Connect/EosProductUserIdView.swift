@@ -16,11 +16,11 @@ struct EosProductUserIdView: View {
         List {
             KeyValueText("ProductUserId:", eos.connectModel.toString(id: productUserId))
 
-            NavigationLink("Copy Product User Info", destination: EosResultView("Copy Product User Info") {
+            EosNavigationLink("Copy Product User Info").result {
                 try eos.connect.CopyProductUserInfo(TargetUserId: productUserId)
             } views: {
                 EosProductUserInfoView(eos: eos, info: $0)
-            })
+            }
         }
         .navigationTitle("Product User Id")
     }

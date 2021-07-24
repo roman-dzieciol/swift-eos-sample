@@ -15,32 +15,32 @@ struct EosConnectView: View {
     var body: some View {
         List {
 
-            NavigationLink("Login (Device)", destination: EosLoadingView("Login (Device)") { completion in
+            EosNavigationLink("Login (Device)").awaitResult { completion in
                 try eos.connectModel.loginDevice { completion($0) }
             } views: {
                 Text("Logged in")
-            })
+            }
 
             NavigationLink("Create Device Id", destination: EosCreateDeviceIdView(eos: eos, name: UIDevice.current.name))
 
-            NavigationLink("Delete Device Id", destination: EosCompletionResultCodeView("Delete Device Id") { completion in
+            EosNavigationLink("Delete Device Id").awaitResultCode { completion in
                 try eos.connect.DeleteDeviceId() { completion($0) }
             } views: {
                 KeyValueText("Result:", $0.ResultCode.description)
-            })
+            }
 
-            NavigationLink("Get Logged In Users", destination: EosResultView("Get Logged In Users") {
+            EosNavigationLink("Get Logged In Users").result {
                 let accountsNum = try eos.connect.GetLoggedInUsersCount()
                 return try (0..<accountsNum).compactMap { try eos.connect.GetLoggedInUserByIndex(Index: $0) }
             } views: {
                 EosProductUserIdListView(eos: eos, productUserIds: $0)
-            })
+            }
 
-            NavigationLink("Copy Product User Info", destination: EosResultView("Copy Product User Info") {
+            EosNavigationLink("Copy Product User Info").result {
                 try eos.connect.CopyProductUserInfo(TargetUserId: eos.connectModel.localUserId)
             } views: {
                 EosProductUserInfoView(eos: eos, info: $0)
-            })
+            }
         }
     }
 }
