@@ -50,25 +50,6 @@ extension SwiftEOSModel {
     }
 }
 
-struct SwiftEOSLogItem: Identifiable {
-    let id: String = UUID().uuidString
-    let date: Date = Date()
-    let string: String
-}
-
-class SwiftEOSEvents: ObservableObject {
-
-    @Published var log: [SwiftEOSLogItem] = []
-
-    func log(_ string: String) {
-        log += [SwiftEOSLogItem(string: string)]
-    }
-
-    init() {
-
-    }
-}
-
 class SwiftEOSModel: ObservableObject {
 
     let queue = DispatchQueue(label: "eos")
@@ -77,6 +58,7 @@ class SwiftEOSModel: ObservableObject {
 
     var authModel: EosAuthModel!
     var connectModel: EosConnectModel!
+    var achievementsModel: EosAchievementsModel!
 
     var subscriptions = Set<AnyCancellable>()
 
@@ -139,6 +121,11 @@ class SwiftEOSModel: ObservableObject {
 
         connectModel = try EosConnectModel(platform: platform, events: events)
         connectModel.objectWillChange.sink { [weak self] _ in
+            self?.objectWillChange.send()
+        }.store(in: &subscriptions)
+
+        achievementsModel = try EosAchievementsModel(platform: platform, events: events)
+        achievementsModel.objectWillChange.sink { [weak self] _ in
             self?.objectWillChange.send()
         }.store(in: &subscriptions)
 

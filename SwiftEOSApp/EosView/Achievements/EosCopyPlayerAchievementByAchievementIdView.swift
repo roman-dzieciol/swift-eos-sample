@@ -10,8 +10,8 @@ struct EosCopyPlayerAchievementByAchievementIdView: View {
     @ObservedObject
     var eos: SwiftEOSModel
 
-    @State
-    var achievementId: String
+    @AppStorage(EosSceneState.EosCopyPlayerAchievementByAchievementIdView)
+    var achievementId: String = ""
 
     @State
     var targetUserIdString: String
@@ -21,11 +21,14 @@ struct EosCopyPlayerAchievementByAchievementIdView: View {
 
     init(
         eos: SwiftEOSModel,
+        achievementId: String? = nil,
         targetUserId: EOS_ProductUserId?,
         localUserId: EOS_ProductUserId?
     ) {
         self.eos = eos
-        self.achievementId = ""
+        if let achievementId = achievementId {
+            self.achievementId = achievementId
+        }
         self.targetUserIdString = (try? SwiftEOS_ProductUserId_ToString(AccountId: targetUserId)) ?? ""
         self.localUserIdString = (try? SwiftEOS_ProductUserId_ToString(AccountId: localUserId)) ?? ""
     }

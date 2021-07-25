@@ -35,7 +35,6 @@ struct EosAchievementDefinitionView: View {
                     KeyValueText(statThresholds[index].Name ?? "", "\(statThresholds[index].Threshold)")
                 }
             }
-
         }
     }
 }

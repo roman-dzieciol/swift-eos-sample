@@ -69,10 +69,19 @@ struct EosRootView: View {
                         Text(item.string)
                             .font(.system(.footnote, design: .monospaced))
                             .foregroundColor(.eosAccent)
+                            .contextMenu {
+                                Text(item.dateString)
+                                Button(action: {
+                                    UIPasteboard.general.string = item.string
+                                }) {
+                                    Text("Copy")
+                                }
+                            }
                     }
                     Color.eosAccent
                         .frame(width: 1)
                 }
+                .transition(.opacity.animation(.easeInOut))
                 .onTapGesture { isDisplayingLog.toggle() }
             } else {
                 HStack {
@@ -81,6 +90,7 @@ struct EosRootView: View {
                     Spacer()
                     Image(systemName: "chevron.up")
                 }
+                .transition(.opacity.animation(.easeInOut))
                 .padding()
                 .foregroundColor(.eosAccent)
                 .onTapGesture { isDisplayingLog.toggle() }
