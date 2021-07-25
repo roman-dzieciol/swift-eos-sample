@@ -19,7 +19,6 @@ class EosAchievementsModel: ObservableObject {
 
     func addNotifyAchievementsUnlockedV2() throws {
         notifyAchievementsUnlockedV2 = try platform.achievements().AddNotifyAchievementsUnlockedV2(NotificationFn: { info in
-
             Logger.achievement.log("\(EosProductUserId(info.UserId).description): \(info.AchievementId ?? "") at: \(info.UnlockTime)")
             DispatchQueue.main.async { [weak self] in
 
