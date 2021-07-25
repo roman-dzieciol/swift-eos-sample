@@ -10,7 +10,7 @@ struct EosCopyAchievementDefinitionV2ByAchievementIdView: View {
     @ObservedObject
     var eos: SwiftEOSModel
 
-    @SceneStorage(EosSceneState.EosCopyAchievementDefinitionV2ByAchievementIdView)
+    @AppStorage(EosSceneState.EosCopyAchievementDefinitionV2ByAchievementIdView)
     var achievementId: String = ""
 
     init(
