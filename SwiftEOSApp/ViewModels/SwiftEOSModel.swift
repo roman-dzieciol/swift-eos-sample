@@ -50,6 +50,24 @@ extension SwiftEOSModel {
     }
 }
 
+struct SwiftEOSLogItem: Identifiable {
+    let id: String = UUID().uuidString
+    let date: Date = Date()
+    let string: String
+}
+
+class SwiftEOSEvents: ObservableObject {
+
+    @Published var log: [SwiftEOSLogItem] = []
+
+    func log(_ string: String) {
+        log += [SwiftEOSLogItem(string: string)]
+    }
+
+    init() {
+
+    }
+}
 
 class SwiftEOSModel: ObservableObject {
 
@@ -62,9 +80,13 @@ class SwiftEOSModel: ObservableObject {
 
     var subscriptions = Set<AnyCancellable>()
 
+    @Published
+    var events: SwiftEOSEvents
+
 
     init() {
         Logger.app.log("init SwiftEOSModel")
+        self.events = SwiftEOSEvents()
         asserting(initialize)
     }
 
@@ -110,13 +132,17 @@ class SwiftEOSModel: ObservableObject {
 
         platform = SwiftEOS_Platform_Actor(Handle: platformHandle)
 
-        authModel = try EosAuthModel(platform: platform)
+        authModel = try EosAuthModel(platform: platform, events: events)
         authModel.objectWillChange.sink { [weak self] _ in
             self?.objectWillChange.send()
         }.store(in: &subscriptions)
 
-        connectModel = try EosConnectModel(platform: platform)
+        connectModel = try EosConnectModel(platform: platform, events: events)
         connectModel.objectWillChange.sink { [weak self] _ in
+            self?.objectWillChange.send()
+        }.store(in: &subscriptions)
+
+        events.objectWillChange.sink { [weak self] _ in
             self?.objectWillChange.send()
         }.store(in: &subscriptions)
 

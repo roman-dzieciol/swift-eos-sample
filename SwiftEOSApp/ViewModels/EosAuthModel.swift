@@ -14,11 +14,13 @@ class EosAuthModel: ObservableObject {
     @Published var localUserId: EOS_EpicAccountId?
 
     let platform: SwiftEOS_Platform_Actor
+    weak var events: SwiftEOSEvents?
 
     var authNotify: AnyObject?
 
-    init(platform: SwiftEOS_Platform_Actor) throws {
+    init(platform: SwiftEOS_Platform_Actor, events: SwiftEOSEvents) throws {
         self.platform = platform
+        self.events = events
         try addLoginotification()
     }
 
@@ -27,10 +29,12 @@ class EosAuthModel: ObservableObject {
         authNotify = try platform.auth().AddNotifyLoginStatusChanged(Notification: { info in
             Logger.auth.log("\(String(describing: info.LocalUserId), privacy: .public): \(info.PrevStatus) -> \(info.CurrentStatus)")
             DispatchQueue.main.async { [weak self] in
-                self?.currentStatus = info.CurrentStatus
-                self?.isLoggedIn = info.CurrentStatus == .EOS_LS_LoggedIn
-                if self?.isLoggedIn != true {
-                    self?.localUserId = nil
+                guard let self = self else { return }
+                self.events?.log("EpicId: \(EosEpicAccountId(info.LocalUserId).description): \(info.PrevStatus) -> \(info.CurrentStatus)")
+                self.currentStatus = info.CurrentStatus
+                self.isLoggedIn = info.CurrentStatus == .EOS_LS_LoggedIn
+                if self.isLoggedIn != true {
+                    self.localUserId = nil
                 }
             }
         })

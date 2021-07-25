@@ -15,11 +15,13 @@ class EosConnectModel: ObservableObject {
 
 
     let platform: SwiftEOS_Platform_Actor
+    weak var events: SwiftEOSEvents?
 
     var connectNotify: AnyObject?
 
-    init(platform: SwiftEOS_Platform_Actor) throws {
+    init(platform: SwiftEOS_Platform_Actor, events: SwiftEOSEvents) throws {
         self.platform = platform
+        self.events = events
         try addLoginotification()
     }
 
@@ -28,10 +30,12 @@ class EosConnectModel: ObservableObject {
         connectNotify = try platform.connect().AddNotifyLoginStatusChanged(Notification: { info in
             Logger.connect.log("\(String(describing: info.LocalUserId), privacy: .public): \(info.PreviousStatus) -> \(info.CurrentStatus)")
             DispatchQueue.main.async { [weak self] in
-                self?.currentStatus = info.CurrentStatus
-                self?.isLoggedIn = info.CurrentStatus == .EOS_LS_LoggedIn
-                if self?.isLoggedIn != true {
-                    self?.localUserId = nil
+                guard let self = self else { return }
+                self.events?.log("ProductId: \(EosProductUserId(info.LocalUserId).description): \(info.PreviousStatus) -> \(info.CurrentStatus)")
+                self.currentStatus = info.CurrentStatus
+                self.isLoggedIn = info.CurrentStatus == .EOS_LS_LoggedIn
+                if self.isLoggedIn != true {
+                    self.localUserId = nil
                 }
             }
         })
